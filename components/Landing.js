@@ -1,16 +1,22 @@
 import styles from '../styles/Landing.module.scss'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 import logo from '../assets/images/logo.png'
 
-export default function Intro() {
+export default function Intro({next}) {
     function play() {
         const audio = document.getElementById('enter-sound')
         audio.play()
+        next()
     }
 
     return (
-        <div
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
             className={styles['landing-container']}>
             <div className={styles['landing-mask']}>
                 <div
@@ -29,6 +35,6 @@ export default function Intro() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

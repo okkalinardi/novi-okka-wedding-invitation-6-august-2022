@@ -1,0 +1,97 @@
+.prologue-container {
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/landing-bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.prologue-mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    padding-top: 24px;
+}
+
+.character-container {
+    padding: 0 24px;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media screen and (max-width: 768px) {
+        height: 80%;
+        padding: 0 8px;
+    }
+}
+
+.character {
+    height: 100%;
+    width: 300px;
+    background: #2d00f8;
+    transition: 1s;
+
+    @media screen and (max-width: 768px) {
+        height: 300px;
+        width: 150px;
+    }
+}
+
+.dialogue-container {
+    width: 100%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        height: 20%;
+    }
+}
+
+.name-tag-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -25px;
+    padding: 0 24px;
+
+    @media screen and (max-width: 768px) {
+        padding: 0 8px;
+        top: -15px;
+    }
+}
+
+.name-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+    background: teal;
+    transition: 1s;
+
+    @media screen and (max-width: 768px) {
+        width: 175px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+.talking {
+    filter: brightness(.2);
+    transition: 1s;
+}
+
+.dialogue-content {
+    padding: 50px;
+    font-weight: 400;
+    font-size: 32px;
+    text-align: left;
+    
+    @media only screen and (max-width: 768px) {
+        font-size: 20px;
+        padding: 24px 16px 16px 16px;
+    }
+}

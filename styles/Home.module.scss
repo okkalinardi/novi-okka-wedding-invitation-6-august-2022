@@ -9,11 +9,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 231, 222, .8);
+  // background-color: rgb(255, 231, 222, .8);
+  background-color: white;
   text-align: center;
   overflow-y: scroll;
   z-index: 10;
   position: relative;
   height: 100%;
+}
+
+.white-screen {
+  height: 100%;
+  width: 100%;
+  background: white;
+  position: absolute;
+  z-index: 99999999 !important;
 }
 
