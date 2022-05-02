@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import LandingSection from '../components/Landing'
 import PrologueSection from '../components/Prologue'
+import Chapter_1 from '../components/Chapter_1'
 import { AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
     setTimeout(() => {
       switch (activeSection) {
         case 'landing':
-          if(localStorage.getItem('PROLOGUE_FINISHED')){
+          if (localStorage.getItem('PROLOGUE_FINISHED')) {
             setChapter_1(true)
             setActiveSection('chapter_1')
           } else {
@@ -37,13 +38,20 @@ export default function Home() {
           }
           break;
         case 'prologue':
-          setChapter_1(true)
-          setActiveSection('chapter_1')
+          activateChapter_1()
           break;
         default:
           break;
       }
     }, 2000);
+  }
+
+  const activateChapter_1 = () => {
+    const mainTheme = document.getElementById('main-theme')
+    mainTheme.loop = true
+    mainTheme.play()
+    setChapter_1(true)
+    setActiveSection('chapter_1')
   }
 
 
@@ -57,11 +65,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <AnimatePresence>
-          {landing && <LandingSection next={next} />}
+          {/* {landing && <LandingSection next={next} />}
 
           {prologue && <PrologueSection next={next} />}
 
-          {chapter_1 && <div></div>}
+          {chapter_1 && <Chapter_1 next={next}/>} */}
+          <Chapter_1 next={next} />
         </AnimatePresence>
       </main>
 
@@ -75,6 +84,10 @@ export default function Home() {
       </audio>
       <audio id='speech-effect'>
         <source src='/speech-effect.mp3' type='audio/mpeg' />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id='main-theme'>
+        <source src='/main-theme.mp3' type='audio/mpeg' />
         Your browser does not support the audio element.
       </audio>
 

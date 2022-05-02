@@ -1,0 +1,25 @@
+.menu-detail {
+    margin-top: 40px;
+    padding: 0 20px;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.menu-detail-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.menu-detail-image-content {
+    border-radius: 8px;
+}
+
+.menu-detail-description {
+    color: white;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+    margin-top: 16px;
+}
