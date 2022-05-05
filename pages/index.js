@@ -90,6 +90,10 @@ export default function Home() {
         <source src='/main-theme.mp3' type='audio/mpeg' />
         Your browser does not support the audio element.
       </audio>
+      <audio id='moogle'>
+        <source src='/moogle.mp3' type='audio/mpeg' />
+        Your browser does not support the audio element.
+      </audio>
 
       {/* <footer className={styles.footer}>
         <a

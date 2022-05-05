@@ -3,12 +3,14 @@ import styles from '../styles/Menu.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import MenuLogo from '../assets/images/menu-logo.png'
-import MusicLogo from '../assets/images/music-logo.png'
+import SoundOn from '../assets/images/sound-on.png'
+import SoundOff from '../assets/images/sound-off.png'
+import Arrow from '../assets/images/arrow.png'
 
 import MenuDetails from './Menu-detail'
 
 
-export default function Menu({ active }) {
+export default function Menu({ active, next}) {
     const [audioPlaying, setAudioPlaying] = useState(true)
     const [menuModal, setMenuModal] = useState(false)
     const [activeMenu, setActiveMenu] = useState(0)
@@ -60,20 +62,33 @@ export default function Menu({ active }) {
         }
     }
 
+    const handleNext = () => {
+        const audio = document.getElementById('enter-sound')
+        audio.play()
+        next()
+    }
+
     return (
         <div className={styles['menu-container']}>
-            <button type='button' onClick={playPauseMainTheme} className={styles['menu-button']}>
-                <Image
-                    src={audioPlaying ? MusicLogo : MenuLogo}
-                    alt=''
-                    className={styles['music-logo']}
-                />
-            </button>
-            <button type='button' onClick={toggleMenuModal} className={styles['menu-button']}>
+            <button type='button' onClick={toggleMenuModal} title="Chapter List" className={styles['menu-button']}>
                 <Image
                     src={MenuLogo}
                     alt=''
                     className={styles['menu-logo']}
+                />
+            </button>
+            <button type='button' onClick={playPauseMainTheme} title={audioPlaying ? 'Turn Off Music' : 'Turn On Music'} className={styles['menu-button']}>
+                <Image
+                    src={audioPlaying ? SoundOn : SoundOff}
+                    alt=''
+                    className={styles['music-logo']}
+                />
+            </button>
+            <button type='button' onClick={handleNext} title="Next Chapter" className={styles['menu-button']}>
+                <Image
+                    src={Arrow}
+                    alt=''
+                    className={styles['next-logo']}
                 />
             </button>
             <AnimatePresence>
