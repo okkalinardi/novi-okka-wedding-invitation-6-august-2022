@@ -20,3 +20,46 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.chapter-container {
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-1-background {
+  background: url('../assets/images/chapter_1_bg.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.chapter-2-background {
+  background: url('../assets/images/chapter_2_bg.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.chapter-mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0 24px;
+  overflow: hidden;
+}
+
+.chapter-title {
+  padding: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  max-width: 800px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+}
+
+.chapter-title-content {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 32px;
+}

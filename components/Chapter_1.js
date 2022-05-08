@@ -10,7 +10,7 @@ import logo from '../assets/images/logo.png'
 import groomPhoto from '../assets/images/flower-circle.png'
 import bridePhoto from '../assets/images/flower-circle.png'
 
-export default function Chapter_1({ next }) {
+export default function Chapter_1({ next, goToChapter }) {
     const [title, setTitle] = useState(true)
     const [content, setContent] = useState(false)
     const [firstContent, setFirstContent] = useState(false)
@@ -52,17 +52,17 @@ export default function Chapter_1({ next }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }} className={styles['chapter-1-container']}>
-            <div className={styles['chapter-1-mask']}>
+            transition={{ duration: 1 }} className='chapter-container chapter-1-background'>
+            <div className='chapter-mask'>
                 <AnimatePresence exitBeforeEnter>
                     {title && <motion.div
                         key={'title'}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }} className={styles['chapter-1-title']}>
-                        <div className={styles['chapter-1-title-header']}>Chapter 1</div>
-                        <div className={styles['chapter-1-title-content']}>You&apos;re Here, I&apos;m Here</div>
+                        transition={{ duration: 1 }} className='chapter-title'>
+                        <div className='chapter-title-header'>Chapter 1</div>
+                        <div className='chapter-title-content'>You&apos;re Here, I&apos;m Here</div>
                     </motion.div>}
 
                     {content && <motion.div
@@ -199,7 +199,7 @@ export default function Chapter_1({ next }) {
                             <div className={styles['moogle-dialog']}>{firstContent ? 'Click me, Kupo!' : 'Go back, kupo!'}</div>
                         </button>
                         {/* <Dialogue speeches={speeches} /> */}
-                        <Menu active={1} next={next} />
+                        <Menu active={1} next={next} goToChapter={goToChapter} />
                     </motion.div>
                     }
 

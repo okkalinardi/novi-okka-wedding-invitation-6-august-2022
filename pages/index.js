@@ -5,12 +5,14 @@ import styles from '../styles/Home.module.scss'
 import LandingSection from '../components/Landing'
 import PrologueSection from '../components/Prologue'
 import Chapter_1 from '../components/Chapter_1'
+import Chapter_2 from '../components/Chapter_2'
 import { AnimatePresence } from 'framer-motion'
 
 export default function Home() {
   const [landing, setlanding] = useState(true)
   const [prologue, setprologue] = useState(false)
   const [chapter_1, setChapter_1] = useState(false)
+  const [chapter_2, setChapter_2] = useState(false)
   const [activeSection, setActiveSection] = useState('landing')
 
   const next = () => {
@@ -21,6 +23,9 @@ export default function Home() {
       case 'prologue':
         localStorage.setItem('PROLOGUE_FINISHED', true)
         setprologue(false)
+        break;
+      case 'chapter_1':
+        setChapter_1(false)
         break;
       default:
         break;
@@ -40,6 +45,10 @@ export default function Home() {
         case 'prologue':
           activateChapter_1()
           break;
+        case 'chapter_1':
+          setChapter_2(true)
+          setActiveSection('chapter_2')
+          break;
         default:
           break;
       }
@@ -54,6 +63,26 @@ export default function Home() {
     setActiveSection('chapter_1')
   }
 
+  const goToChapter = (chapterNumber) => {
+    setprologue(false)
+    setChapter_1(false)
+    setChapter_2(false)
+
+    switch (chapterNumber) {
+      case 0:
+        setprologue(true)
+        break;
+      case 1:
+        activateChapter_1()
+        break;
+      case 2:
+        setChapter_2(true)
+        break;
+      default:
+        break;
+    }
+  }
+
 
   return (
     <div className={styles.container}>
@@ -65,12 +94,14 @@ export default function Home() {
 
       <main className={styles.main}>
         <AnimatePresence>
-          {/* {landing && <LandingSection next={next} />}
+          {landing && <LandingSection next={next} />}
 
           {prologue && <PrologueSection next={next} />}
 
-          {chapter_1 && <Chapter_1 next={next}/>} */}
-          <Chapter_1 next={next} />
+          {chapter_1 && <Chapter_1 next={next} goToChapter={goToChapter}/>}
+
+          {chapter_2 && <Chapter_2 next={next} goToChapter={goToChapter}/>}
+          {/* <Chapter_2 next={next} goToChapter={goToChapter} /> */}
         </AnimatePresence>
       </main>
 

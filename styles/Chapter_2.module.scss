@@ -1,0 +1,70 @@
+.chapter-2-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.dialog-container {
+    position: relative;
+    margin: 0 -24px;
+    width: 100vw;
+    background: white;
+    height: 25vh;
+
+    @media screen and (max-width: 768px) {
+        height: 200px;
+    }
+}
+
+.character-holder {
+    position: absolute;
+    left: 24px;
+
+    @media screen and (max-width: 768px) {
+        left: 8px;
+    }
+}
+
+.character {
+    height: 500px;
+    width: 300px;
+    background: pink;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+
+    &.groom {
+        background: blue;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 400px;
+        width: 200px;
+        left: 8px;
+    }
+}
+
+.name-holder {
+    height: 50px;
+    width: 400px;
+    background-color: greenyellow;
+    position: absolute;
+    bottom: -25px;
+
+    @media screen and (max-width: 768px) {
+       width: 250px;
+    }
+}
+
+.dialog-content {
+    text-align: left;
+    padding: 32px 24px 16px 24px;
+    font-size: 24px;
+
+    @media screen and (max-width: 768px) {
+        text-align: left;
+        padding: 32px 8px 16px 8px;
+        font-size: 16px;
+     }
+}
