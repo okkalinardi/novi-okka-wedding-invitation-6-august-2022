@@ -4,6 +4,7 @@
     top: 24px;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 
     @media screen and (max-width: 768px) {
         right: 16px;
@@ -28,21 +29,40 @@
     }
 }
 
-.menu-logo {
-    transition: 0.5s;
+.next-button {
+    width: 175px;
+    height: 75px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border: none;
+    background: none;
+    animation: none;
 
+    @media screen and (max-width: 768px) {
+        width: 155px;
+        height: 55px;
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+}
+
+.menu-logo {
     &:hover {
-        transform: rotateY(360deg);
-        transition: 0.5s;
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
     }
 }
 
 .next-logo {
-    transition: 0.5s;
-
     &:hover {
-        transform: rotateX(360deg);
-        transition: 0.5s;
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
     }
 }
 
@@ -134,11 +154,11 @@
 
         &:first-child {
             border-radius: 0;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/landing-bg.png');
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/prologue_bg.png');
             transition: 0.5s;
 
             &:hover, &.active {
-                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/landing-bg.png');
+                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/prologue_bg.png');
                 color: black;
                 transition: 0.5s;
             }
@@ -156,10 +176,10 @@
         }
 
         &:nth-child(3) {
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_1_bg.png');
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_2_bg.png');
             
             &:hover, &.active {
-                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_1_bg.png');
+                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_2_bg.png');
                 color: black;
                 transition: 0.5s;
             }
@@ -176,10 +196,10 @@
         }
 
         &:nth-child(5) {
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_1_bg.png');
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_3_bg.png');
             
             &:hover, &.active {
-                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_1_bg.png');
+                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_3_bg.png');
                 color: black;
                 transition: 0.5s;
             }

@@ -75,6 +75,13 @@ export default function Menu({ active, next, goToChapter}) {
 
     return (
         <div className={styles['menu-container']}>
+            <button type='button' onClick={handleNext} title="Next Chapter" className={styles['next-button']}>
+                <Image
+                    src={Arrow}
+                    alt=''
+                    className={styles['next-logo']}
+                />
+            </button>
             <button type='button' onClick={toggleMenuModal} title="Chapter List" className={styles['menu-button']}>
                 <Image
                     src={MenuLogo}
@@ -87,13 +94,6 @@ export default function Menu({ active, next, goToChapter}) {
                     src={audioPlaying ? SoundOn : SoundOff}
                     alt=''
                     className={styles['music-logo']}
-                />
-            </button>
-            <button type='button' onClick={handleNext} title="Next Chapter" className={styles['menu-button']}>
-                <Image
-                    src={Arrow}
-                    alt=''
-                    className={styles['next-logo']}
                 />
             </button>
             <AnimatePresence>

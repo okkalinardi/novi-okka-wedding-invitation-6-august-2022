@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 // import Image from 'next/image'
 import Menu from '../components/Menu'
 
-export default function Chapter_2({ activeMenu, goToChapter }) {
+export default function Chapter_2({ activeMenu, goToChapter, next }) {
     const [title, setTitle] = useState(true)
     const [content, setContent] = useState(false)
     const [groomTalking, setGroomTalking] = useState(false)
@@ -43,7 +43,7 @@ export default function Chapter_2({ activeMenu, goToChapter }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }} className='chapter-container chapter-2-background'>
-            <div className='chapter-mask'>
+            <div className={`chapter-mask ${content ? 'content' : 'title'}`}>
                 <AnimatePresence exitBeforeEnter>
                     {title && <motion.div
                         key={'title'}

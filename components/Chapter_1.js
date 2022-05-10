@@ -53,7 +53,7 @@ export default function Chapter_1({ next, goToChapter }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }} className='chapter-container chapter-1-background'>
-            <div className='chapter-mask'>
+            <div className={`chapter-mask ${content ? 'content' : 'title'}`}>
                 <AnimatePresence exitBeforeEnter>
                     {title && <motion.div
                         key={'title'}
