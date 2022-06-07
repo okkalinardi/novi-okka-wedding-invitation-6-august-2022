@@ -24,6 +24,7 @@ a {
 .chapter-container {
   width: 100%;
   height: 100%;
+  overflow:auto;
 }
 
 .chapter-1-background {
@@ -42,12 +43,25 @@ a {
   background-position: bottom;
 }
 
+.chapter-4-background {
+  background: url('../assets/images/chapter_4_bg.png') no-repeat center center fixed;
+  background-size: cover;
+  background-position: bottom;
+}
+
 .chapter-mask {
   width: 100%;
   height: 100%;
   padding: 0 24px;
-  overflow: hidden;
   background: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 768px) {
+    .chapter-4-mask {
+    padding: 0 16px;
+  }
 }
 
 /* .title {
@@ -59,6 +73,10 @@ a {
   transition: 1s;
   background: rgba(255, 255, 255, 0.6);
 } */
+
+.chapter-4-mask {
+  overflow-y: scroll;
+}
 
 .chapter-title {
   padding: 32px;
@@ -78,4 +96,8 @@ a {
   max-width: 250px;
   margin: 0 auto;
   margin-top: 32px;
+}
+
+.chapter-4 {
+  font-size: 32px;
 }

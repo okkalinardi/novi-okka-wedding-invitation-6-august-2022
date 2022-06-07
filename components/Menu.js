@@ -51,6 +51,7 @@ export default function Menu({ active, next, goToChapter}) {
             mainTheme.pause()
             setAudioPlaying(false)
         } else {
+            mainTheme.loop = true
             mainTheme.play()
             setAudioPlaying(true)
         }

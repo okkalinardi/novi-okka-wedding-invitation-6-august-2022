@@ -55,9 +55,7 @@
 
 .chapter-1-photo-frame {
     width: 700px;
-    height: 400px;
-    background: url('../assets/photos/chapter_1_photo.jpg') no-repeat center center fixed;
-    background-size: contain;
+    height: 500px;
 
     @media screen and (max-width: 768px) {
         width: 100%;

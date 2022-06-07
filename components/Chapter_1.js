@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Menu from '../components/Menu'
 
-import chapter_1_photo from '../assets/images/chapter_1_frame.png'
+import chapter_1_photo from '../assets/photos/chapter_1_photo.jpg'
 import moogle from '../assets/images/moogle.png'
 import logo from '../assets/images/logo.png'
-import groomPhoto from '../assets/images/flower-circle.png'
-import bridePhoto from '../assets/images/flower-circle.png'
+import groomPhoto from '../assets/photos/flower-circle-groom.png'
+import bridePhoto from '../assets/photos/flower-circle-bride.png'
 
 export default function Chapter_1({ next, goToChapter }) {
     const [title, setTitle] = useState(true)
@@ -93,8 +93,6 @@ export default function Chapter_1({ next, goToChapter }) {
                                     <Image
                                         src={chapter_1_photo}
                                         alt=''
-                                        width={700}
-                                        height={400}
                                     />
                                 </div>
                             </motion.div>}
