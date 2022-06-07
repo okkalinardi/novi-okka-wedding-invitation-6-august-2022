@@ -1,0 +1,56 @@
+.chapter-5-content-title {
+    margin-top: 32px;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.chapter-5-main-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    align-items: center;
+}
+
+.content {
+    width: 48%;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+
+    &.left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &.right {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.chapter-5-intro {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.qr-image-container {
+    height: 250px;
+    width: 250px;
+}
+
+.account-number {
+    margin-top: 24px;
+    max-width: 200px;
+    font-size: 20px;
+    font-weight: 500;
+}

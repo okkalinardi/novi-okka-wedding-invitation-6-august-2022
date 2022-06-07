@@ -7,6 +7,8 @@ import FirstChapterImage from '../assets/images/chapter_1_bg.png'
 import SecondChapterImage from '../assets/images/chapter_2_bg.png'
 import ThirdChapterImage from '../assets/images/chapter_3_bg.png'
 import FourthChapterImage from '../assets/images/chapter_4_bg.png'
+import FifthChapterImage from '../assets/photos/chapter_5_bg.jpg'
+import SixthChapterImage from '../assets/photos/chapter_6_bg.jpg'
 
 export default function MenuDetails({ activeMenu }) {
 
@@ -87,7 +89,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={FirstChapterImage}
+                            src={FifthChapterImage}
                             alt=''
                             className={styles['menu-detail-image-content']}
                         />
@@ -100,7 +102,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={FirstChapterImage}
+                            src={SixthChapterImage}
                             alt=''
                             className={styles['menu-detail-image-content']}
                         />

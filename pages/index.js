@@ -8,6 +8,7 @@ import Chapter_1 from '../components/Chapter_1'
 import Chapter_2 from '../components/Chapter_2'
 import Chapter_3 from '../components/Chapter_3'
 import Chapter_4 from '../components/Chapter_4'
+import Chapter_5 from '../components/Chapter_5'
 import { AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   const [chapter_2, setChapter_2] = useState(false)
   const [chapter_3, setChapter_3] = useState(false)
   const [chapter_4, setChapter_4] = useState(false)
+  const [chapter_5, setChapter_5] = useState(false)
   const [activeSection, setActiveSection] = useState('landing')
 
   const next = () => {
@@ -36,6 +38,9 @@ export default function Home() {
         break;
       case 'chapter_3':
         setChapter_3(false)
+        break;
+      case 'chapter_4':
+        setChapter_4(false)
         break;
       default:
         break;
@@ -66,6 +71,10 @@ export default function Home() {
         case 'chapter_3':
           setChapter_4(true)
           setActiveSection('chapter_4')
+          break;
+        case 'chapter_4':
+          setChapter_5(true)
+          setActiveSection('chapter_5')
           break;
         default:
           break;
@@ -104,6 +113,9 @@ export default function Home() {
       case 4:
         setChapter_4(true)
         break;
+      case 5:
+        setChapter_5(true)
+        break;
       default:
         break;
     }
@@ -130,8 +142,11 @@ export default function Home() {
 
           {chapter_3 && <Chapter_3 next={next} goToChapter={goToChapter}/>}
 
-          {chapter_4 && <Chapter_4 next={next} goToChapter={goToChapter}/>} */}
-          <Chapter_4 next={next} goToChapter={goToChapter} />
+          {chapter_4 && <Chapter_4 next={next} goToChapter={goToChapter}/>}
+
+          {chapter_5 && <Chapter_5 next={next} goToChapter={goToChapter}/>} */}
+
+          <Chapter_5 next={next} goToChapter={goToChapter} />
         </AnimatePresence>
       </main>
 
