@@ -9,6 +9,7 @@ import Chapter_2 from '../components/Chapter_2'
 import Chapter_3 from '../components/Chapter_3'
 import Chapter_4 from '../components/Chapter_4'
 import Chapter_5 from '../components/Chapter_5'
+import Chapter_6 from '../components/Chapter_6'
 import { AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
   const [chapter_3, setChapter_3] = useState(false)
   const [chapter_4, setChapter_4] = useState(false)
   const [chapter_5, setChapter_5] = useState(false)
+  const [chapter_6, setChapter_6] = useState(false)
   const [activeSection, setActiveSection] = useState('landing')
 
   const next = () => {
@@ -41,6 +43,9 @@ export default function Home() {
         break;
       case 'chapter_4':
         setChapter_4(false)
+        break;
+      case 'chapter_5':
+        setChapter_5(false)
         break;
       default:
         break;
@@ -75,6 +80,10 @@ export default function Home() {
         case 'chapter_4':
           setChapter_5(true)
           setActiveSection('chapter_5')
+          break;
+        case 'chapter_5':
+          setChapter_6(true)
+          setActiveSection('chapter_6')
           break;
         default:
           break;
@@ -132,7 +141,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <AnimatePresence>
-          {/* {landing && <LandingSection next={next} />}
+          {landing && <LandingSection next={next} />}
 
           {prologue && <PrologueSection next={next} />}
 
@@ -144,9 +153,11 @@ export default function Home() {
 
           {chapter_4 && <Chapter_4 next={next} goToChapter={goToChapter}/>}
 
-          {chapter_5 && <Chapter_5 next={next} goToChapter={goToChapter}/>} */}
+          {chapter_5 && <Chapter_5 next={next} goToChapter={goToChapter}/>}
 
-          <Chapter_5 next={next} goToChapter={goToChapter} />
+          {chapter_6 && <Chapter_6 next={next} goToChapter={goToChapter}/>}
+
+          {/* <Chapter_6 next={next} goToChapter={goToChapter} /> */}
         </AnimatePresence>
       </main>
 

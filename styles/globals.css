@@ -55,6 +55,12 @@ a {
   background-position: bottom;
 }
 
+.chapter-6-background {
+  background: url('../assets/photos/chapter_6_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: bottom;
+}
+
 .chapter-mask {
   width: 100%;
   height: 100%;
@@ -69,16 +75,6 @@ a {
     padding: 0 16px;
   }
 }
-
-/* .title {
-  transition: 1s;
-  background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.content {
-  transition: 1s;
-  background: rgba(255, 255, 255, 0.6);
-} */
 
 .chapter-4-mask {
   overflow-y: scroll;
