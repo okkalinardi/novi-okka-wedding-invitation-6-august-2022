@@ -147,6 +147,10 @@
     background-image: url('../assets/photos/chapter_3_location_photo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media screen and (max-width: 768px) {
+        background-position-x: -150px;
+    }
 }
 
 .second-content-mask {
