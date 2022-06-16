@@ -105,6 +105,8 @@ export default function Home() {
     setChapter_2(false)
     setChapter_3(false)
     setChapter_4(false)
+    setChapter_5(false)
+    setChapter_6(false)
 
     switch (chapterNumber) {
       case 0:

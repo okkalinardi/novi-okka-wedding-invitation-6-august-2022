@@ -206,10 +206,10 @@
         }
 
         &:nth-child(6) {
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_4_bg.png');
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/photos/chapter_5_bg.jpg');
             
             &:hover, &.active {
-                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_4_bg.png');
+                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/photos/chapter_5_bg.jpg');
                 color: black;
                 transition: 0.5s;
             }
@@ -217,10 +217,10 @@
     
         &:last-child {
             border-radius: 0 0 8px 8px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/images/chapter_1_bg.png');
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 68%, rgba(0,0,0,1) 100%), url('../assets/photos/chapter_6_bg.jpg');
 
             &:hover, &.active {
-                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/images/chapter_1_bg.png');
+                background: linear-gradient(90deg, rgba(255,255,255,0.49625787815126055) 0%, rgba(255,255,255,0.3) 50%), url('../assets/photos/chapter_6_bg.jpg');
                 color: black;
                 transition: 0.5s;
             }
