@@ -78,7 +78,7 @@ export default function Chapter_5({ activeMenu, goToChapter, next }) {
                                 ) : null}
                             </ModalGateway>
 
-                            <Menu active={2} next={next} goToChapter={goToChapter} />
+                            <Menu active={6} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 

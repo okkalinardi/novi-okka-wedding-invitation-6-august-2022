@@ -55,7 +55,7 @@ export default function Home() {
       switch (activeSection) {
         case 'landing':
           if (localStorage.getItem('PROLOGUE_FINISHED')) {
-            setChapter_1(true)
+            activateChapter_1()
             setActiveSection('chapter_1')
           } else {
             setprologue(true)

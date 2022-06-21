@@ -17,7 +17,7 @@ export default function Menu({ active, next, goToChapter}) {
 
     useEffect(() => {
         const mainTheme = document.getElementById('main-theme')
-        if (!mainTheme.onpause) {
+        if (mainTheme.onpause) {
             setAudioPlaying(false)
         }
 

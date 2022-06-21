@@ -171,20 +171,20 @@
     height: 100%;
     margin-left: auto;
     padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 768px) {
         width: 100%;
         padding: 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 }
 
 .location-content-title {
     font-weight: 400;
-    font-size: 48px;
+    font-size: 32px;
     width: 350px;
     margin: 0 auto;
     margin-bottom: 32px;
