@@ -4,6 +4,10 @@
     width: 100%;
     margin-left: -24px;
     z-index: 999999 !important;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .dialogue-wrapper {

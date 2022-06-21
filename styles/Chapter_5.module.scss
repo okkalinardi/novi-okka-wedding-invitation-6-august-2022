@@ -1,3 +1,20 @@
+.chapter-5-mask {
+    overflow-y: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.chapter-5-content {
+    @media screen and (max-width: 768px) {
+        padding-bottom: 80px;
+    }
+}
+
 .chapter-5-content-title {
     margin-top: 32px;
     font-size: 40px;
@@ -29,6 +46,10 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         padding-top: 0;
+
+        @media screen and (max-width: 768px) {
+            margin-bottom: 65px;
+        }
     }
 
     @media screen and (max-width: 768px) {

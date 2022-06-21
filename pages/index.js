@@ -127,6 +127,9 @@ export default function Home() {
       case 5:
         setChapter_5(true)
         break;
+      case 6:
+        setChapter_6(true)
+        break;
       default:
         break;
     }

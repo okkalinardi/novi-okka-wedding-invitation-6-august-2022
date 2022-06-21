@@ -83,14 +83,14 @@ export default function Menu({ active, next, goToChapter}) {
                     className={styles['next-logo']}
                 />
             </button>
-            <button type='button' onClick={toggleMenuModal} title="Chapter List" className={styles['menu-button']}>
+            <button type='button' onClick={toggleMenuModal} title="Chapter List" className={`${styles['menu-button']} ${styles['chapter-list-button']}`}>
                 <Image
                     src={MenuLogo}
                     alt=''
                     className={styles['menu-logo']}
                 />
             </button>
-            <button type='button' onClick={playPauseMainTheme} title={audioPlaying ? 'Turn Off Music' : 'Turn On Music'} className={styles['menu-button']}>
+            <button type='button' onClick={playPauseMainTheme} title={audioPlaying ? 'Turn Off Music' : 'Turn On Music'} className={`${styles['menu-button']} ${styles['music-button']}`}>
                 <Image
                     src={audioPlaying ? SoundOn : SoundOff}
                     alt=''

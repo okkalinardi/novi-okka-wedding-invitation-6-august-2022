@@ -1,6 +1,7 @@
 .chapter-3-content {
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .save-the-date-section {
@@ -83,6 +84,7 @@
     bottom: 0;
 
     @media screen and (max-width: 768px) {
+        bottom: 80px;
         font-size: 15px;
     }
 
@@ -149,6 +151,7 @@
     background-repeat: no-repeat;
 
     @media screen and (max-width: 768px) {
+        height: calc(100% - 80px);
         background-position-x: -150px;
     }
 }

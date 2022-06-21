@@ -26,7 +26,7 @@ export default function Chapter_5({ activeMenu, goToChapter, next }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }} className='chapter-container chapter-5-background'>
-            <div className={`chapter-mask ${content ? 'content' : 'title'}`}>
+            <div className={`chapter-mask ${content ? 'content' : 'title'} ${content ? styles['chapter-5-mask'] : ''}`}>
                 <AnimatePresence exitBeforeEnter>
                     {title && <motion.div
                         key={'title'}
