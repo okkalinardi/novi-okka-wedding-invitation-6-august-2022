@@ -197,7 +197,7 @@ export default function Chapter_1({ next, goToChapter }) {
                             <div className={styles['moogle-dialog']}>{firstContent ? 'Click me, Kupo!' : 'Go back, kupo!'}</div>
                         </button>
                         {/* <Dialogue speeches={speeches} /> */}
-                        <Menu active={1} next={next} goToChapter={goToChapter} />
+                        <Menu toggleZindex={()=> {}} active={1} next={next} goToChapter={goToChapter} />
                     </motion.div>
                     }
 

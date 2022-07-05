@@ -101,7 +101,7 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                             animate={{ opacity: 1}}
                                             exit={{ opacity: 0}}
                                             transition={{ duration: 1 }}
-                                            className={`${styles['dialog-content']} ${styles['groom-content']}`}>Groom Vow</motion.div>
+                                            className={`${styles['dialog-content']} ${styles['groom-content']}`}>all this years, I&apos;ve been thinking about the same thing over and over. We started off just as two people who knows each other&apos;s name, to people who are in the same highschool club together to being friends who tease each other so much, to being best friends, to being girlfriend and boyfriend, and now finally we&apos;re officially gonna be together for the rest of our life. I&apos;m very grateful to have met you and I can&apos;t wait to see the beautiful memories we&apos;re going to unfold together. I love you forever Novi Andriany.</motion.div>
                                     }
                                     {
                                         brideTalking &&
@@ -115,8 +115,7 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                     }
                                 </AnimatePresence>
                             </div>
-                            {/* <Dialogue speeches={speeches} /> */}
-                            <Menu active={2} next={next} goToChapter={goToChapter} />
+                            <Menu toggleZindex={()=> {}} active={2} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 

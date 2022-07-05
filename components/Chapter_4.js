@@ -26,11 +26,21 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
     const [avatarPicker, setAvatarPicker] = useState(false)
     const [messages, setMessages] = useState([])
     const [avatarList, setAvatarList] = useState([avatar1, avatar2, avatar3, avatar4, avatar5, avatar6, avatar7, avatar8, avatar9, avatar10, avatar11, avatar12, avatar13, avatar14, avatar15])
-    const [chosenAvatar, setChosenAvatar] = useState(avatar1)
+    const [chosenAvatar, setChosenAvatar] = useState(0)
     const [sender, setSender] = useState('')
     const [message, setMessage] = useState('')
+    const [zIndex, setZindex] = useState(false)
+
+    const toggleZindex = (value) => {
+        if(!!value) {
+            setZindex(true)
+        } else {
+            setZindex(false)
+        }
+      }
 
     useEffect(() => {
+        fetchComments()
         setTimeout(() => {
             setTitle(false)
             setContent(true)
@@ -46,24 +56,45 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
     }
 
     const chooseAvatar = (avatar) => {
+        console.log(avatar)
         setChosenAvatar(avatar)
         toggleMenuModal()
     }
 
-    const submitMessage = () => {
-        const messageObject = {content: '',avatar: null, sender: ''}
-        messageObject.content = message
+    const submitMessage = async () => {
+        const messageObject = {message: '',avatar: null, sender: ''}
+        messageObject.message = message
         messageObject.avatar = chosenAvatar
         messageObject.sender = sender
 
-        setMessages([...messages, messageObject])
+        const res = await fetch('http://localhost:3000/api/comments', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(messageObject)
+          })
+
+        // setMessages([...messages, messageObject])
+
+        fetchComments()
 
         setTimeout(() => {
             setMessage('')
             setSender('')
-            setChosenAvatar(avatar1)
+            setChosenAvatar(0)
         }, 1500);
     }
+
+    const fetchComments = async ()=> {
+        try {
+          const res = await fetch('http://localhost:3000/api/comments')
+        const data = await res.json()
+        setMessages([...data])
+        } catch (error) {
+          console.log(error, 'ERROR')
+        }
+      }
 
 
     return (
@@ -108,10 +139,10 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                                         exit={{ opacity: 0, translateY: 50 }}
                                                         transition={{ duration: 1, delay: i * 0.5 }}
                                                         className={`${styles['message-item']} ${styles['right']}`}>
-                                                        <div className={`${styles['message-avatar']} ${styles['right']}`}>
+                                                        <div className={`${styles['message-avatar']} ${styles['right']} ${zIndex ? styles['mobile-hide']: ''}`}>
                                                             <div className={`${styles['message-avatar-content']} ${styles['right']}`}>
                                                                 <Image
-                                                                    src={message.avatar}
+                                                                    src={avatarList[message.avatar]}
                                                                     alt=''
                                                                 />
                                                             </div>
@@ -119,7 +150,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                                         <div className={`${styles['message-content']} ${styles['right']}`}>
                                                             <div className={`${styles['sender-section']} ${styles['right']}`}>{message.sender}</div>
                                                             <div className={`${styles['message-section']} ${styles['right']}`}>
-                                                                {message.content}
+                                                                {message.message}
                                                             </div>
                                                         </div>
                                                     </motion.div>
@@ -132,10 +163,10 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                                         animate={{ opacity: 1, translateY: 0 }}
                                                         exit={{ opacity: 0, translateY: 50 }}
                                                         transition={{ duration: 1, delay: i * 0.5 }} className={styles['message-item']}>
-                                                        <div className={styles['message-avatar']}>
+                                                        <div className={`${styles['message-avatar']} ${zIndex ? styles['mobile-hide']: ''}`}>
                                                             <div className={styles['message-avatar-content']}>
                                                                 <Image
-                                                                    src={message.avatar}
+                                                                    src={avatarList[message.avatar]}
                                                                     alt=''
                                                                 />
                                                             </div>
@@ -143,7 +174,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                                         <div className={styles['message-content']}>
                                                             <div className={styles['sender-section']}>{message.sender}</div>
                                                             <div className={styles['message-section']}>
-                                                                {message.content}
+                                                                {message.message}
                                                             </div>
                                                         </div>
                                                     </motion.div>
@@ -157,7 +188,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                             <form onSubmit={(event)=>{event.preventDefault(); submitMessage()}} className={styles['message-keyboard-section']}>
                                 <div className={styles['message-avatar-picker-section']} onClick={toggleMenuModal}>
                                     <Image
-                                        src={chosenAvatar}
+                                        src={avatarList[chosenAvatar]}
                                         alt=''
                                     />
                                 </div>
@@ -193,7 +224,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                             {
                                                 avatarList.map((avatar, i) => {
                                                     return (
-                                                        <div key={i} className={styles['avatar-picker-item']} onClick={()=> chooseAvatar(avatar)}>
+                                                        <div key={i} className={styles['avatar-picker-item']} onClick={()=> chooseAvatar(i)}>
                                                             <Image
                                                                 src={avatar}
                                                                 alt=''
@@ -209,7 +240,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
 
 
                             {/* <Dialogue speeches={speeches} /> */}
-                            <Menu active={4} next={next} goToChapter={goToChapter} />
+                            <Menu toggleZindex={toggleZindex} active={4} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 

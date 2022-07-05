@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
@@ -10,6 +10,7 @@ import Chapter_3 from '../components/Chapter_3'
 import Chapter_4 from '../components/Chapter_4'
 import Chapter_5 from '../components/Chapter_5'
 import Chapter_6 from '../components/Chapter_6'
+import PrologueSelection from '../components/Prologue-selection'
 import { AnimatePresence } from 'framer-motion'
 
 export default function Home() {
@@ -21,12 +22,32 @@ export default function Home() {
   const [chapter_4, setChapter_4] = useState(false)
   const [chapter_5, setChapter_5] = useState(false)
   const [chapter_6, setChapter_6] = useState(false)
+  const [prologueModal, setPrologueModal] = useState(false)
   const [activeSection, setActiveSection] = useState('landing')
+
+  const activatePrologue = () => {
+    const audio = document.getElementById('enter-sound')
+    audio.play()
+    setPrologueModal(false)
+    setlanding(false)
+    setprologue(true)
+  }
+  const skipPrologue = () => {
+    const audio = document.getElementById('enter-sound')
+    audio.play()
+    setPrologueModal(false)
+    setlanding(false)
+    activateChapter_1()
+  }
 
   const next = () => {
     switch (activeSection) {
       case 'landing':
-        setlanding(false)
+        if (localStorage.getItem('PROLOGUE_FINISHED')) {
+          setPrologueModal(true)
+        } else {
+          setlanding(false)
+        }
         break;
       case 'prologue':
         localStorage.setItem('PROLOGUE_FINISHED', true)
@@ -54,10 +75,11 @@ export default function Home() {
     setTimeout(() => {
       switch (activeSection) {
         case 'landing':
-          if (localStorage.getItem('PROLOGUE_FINISHED')) {
-            activateChapter_1()
-            setActiveSection('chapter_1')
-          } else {
+          if (!localStorage.getItem('PROLOGUE_FINISHED')) {
+            //   // activateChapter_1()
+            //   // setActiveSection('chapter_1')
+            //   console.log('test')
+            // } else {
             setprologue(true)
             setActiveSection('prologue')
           }
@@ -110,25 +132,34 @@ export default function Home() {
 
     switch (chapterNumber) {
       case 0:
+        const mainTheme = document.getElementById('main-theme')
+        mainTheme.pause()
+        mainTheme.currentTime = 0
         setprologue(true)
+        setActiveSection('prologue')
         break;
       case 1:
         activateChapter_1()
         break;
       case 2:
         setChapter_2(true)
+        setActiveSection('chapter_2')
         break;
       case 3:
         setChapter_3(true)
+        setActiveSection('chapter_3')
         break;
       case 4:
         setChapter_4(true)
+        setActiveSection('chapter_4')
         break;
       case 5:
         setChapter_5(true)
+        setActiveSection('chapter_5')
         break;
       case 6:
         setChapter_6(true)
+        setActiveSection('chapter_6')
         break;
       default:
         break;
@@ -150,18 +181,19 @@ export default function Home() {
 
           {prologue && <PrologueSection next={next} />}
 
-          {chapter_1 && <Chapter_1 next={next} goToChapter={goToChapter}/>}
+          {chapter_1 && <Chapter_1 next={next} goToChapter={goToChapter} />}
 
-          {chapter_2 && <Chapter_2 next={next} goToChapter={goToChapter}/>}
+          {chapter_2 && <Chapter_2 next={next} goToChapter={goToChapter} />}
 
-          {chapter_3 && <Chapter_3 next={next} goToChapter={goToChapter}/>}
+          {chapter_3 && <Chapter_3 next={next} goToChapter={goToChapter} />}
 
-          {chapter_4 && <Chapter_4 next={next} goToChapter={goToChapter}/>}
+          {chapter_4 && <Chapter_4 next={next} goToChapter={goToChapter} />}
 
-          {chapter_5 && <Chapter_5 next={next} goToChapter={goToChapter}/>}
+          {chapter_5 && <Chapter_5 next={next} goToChapter={goToChapter} />}
 
-          {chapter_6 && <Chapter_6 next={next} goToChapter={goToChapter}/>}
+          {chapter_6 && <Chapter_6 next={next} goToChapter={goToChapter} />}
 
+          {prologueModal && <PrologueSelection activatePrologue={activatePrologue} skipPrologue={skipPrologue} />}
           {/* <Chapter_6 next={next} goToChapter={goToChapter} /> */}
         </AnimatePresence>
       </main>

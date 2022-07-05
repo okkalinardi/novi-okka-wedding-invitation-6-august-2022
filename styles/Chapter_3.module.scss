@@ -64,6 +64,7 @@
 
 .countdown-info {
     font-size: 20px;
+    font-family: 'Lato', sans-serif;
 
     @media screen and (max-width: 768px) {
         font-size: 10px;
@@ -175,6 +176,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Lato', sans-serif;
 
     @media screen and (max-width: 768px) {
         width: 100%;

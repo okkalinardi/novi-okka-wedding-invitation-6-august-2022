@@ -61,14 +61,14 @@ export default function Chapter_5({ activeMenu, goToChapter, next }) {
                                 </div>
                                 <div className={`${styles['content']} ${styles['right']}`}>
                                     <div className={styles['chapter-5-intro']}>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id est eu lacus blandit dapibus. Nam pulvinar luctus aliquet. Maecenas commodo elit ut ultrices efficitur. Curabitur posuere venenatis velit, sed accumsan metus consectetur id. Fusce at tincidunt ipsum. Sed sed pretium tellus. Vivamus mauris est, rutrum blandit commodo eu, sagittis eu enim. Fusce venenatis augue sed orci luctus consectetur. Suspendisse pulvinar gravida lacus id molestie. Vestibulum ligula risus, convallis sed ante quis, placerat scelerisque felis.
+                                        All your love and prayers are more than enough for us. But if you want to send us even more love, feel free to do so. We are very grateful for any love you send us!
                                     </div>
                                 </div>
                                 
                             </div>
 
                             <Dialogue speeches={speeches} />
-                            <Menu active={5} next={next} goToChapter={goToChapter} />
+                            <Menu toggleZindex={()=> {}} active={5} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 

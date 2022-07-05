@@ -10,7 +10,7 @@ import Arrow from '../assets/images/arrow.png'
 import MenuDetails from './Menu-detail'
 
 
-export default function Menu({ active, next, goToChapter}) {
+export default function Menu({ active, next, goToChapter, toggleZindex}) {
     const [audioPlaying, setAudioPlaying] = useState(true)
     const [menuModal, setMenuModal] = useState(false)
     const [activeMenu, setActiveMenu] = useState(0)
@@ -35,8 +35,10 @@ export default function Menu({ active, next, goToChapter}) {
     const toggleMenuModal = () => {
         if (!menuModal) {
             setMenuModal(true)
+            toggleZindex('asdasdasdsa')
         } else {
             setMenuModal(false)
+            toggleZindex('')
         }
         const audio = document.getElementById('enter-sound')
         audio.play()
