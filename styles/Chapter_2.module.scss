@@ -8,67 +8,67 @@
     }
 }
 
-.dialog-container {
-    position: relative;
-    margin: 0 -24px;
-    width: 100vw;
-    background: white;
-    height: 25vh;
+.content-container {
+    width: calc(100% - 175px);
+    height: 100%;
+    display: flex;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+}
+
+.content-item {
+    width: 50%;
+    height: 100%;
 
     @media screen and (max-width: 768px) {
-        height: 200px;
+        width: 100%;
+        height: 50%;
     }
 }
 
-.character-holder {
-    position: absolute;
-    left: 24px;
+// .content-left {
+//     background: blue;
+// }
 
-    @media screen and (max-width: 768px) {
-        left: 8px;
-    }
+.content-right {
+    display: flex;
+    align-items: center;
 }
 
-.character {
-    height: 500px;
-    width: 300px;
-    background: pink;
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-
-    &.groom {
-        background: blue;
-    }
-
-    @media screen and (max-width: 768px) {
-        height: 400px;
-        width: 200px;
-        left: 8px;
-    }
+.groom {
+    background: url('../assets/images/groom-character.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    width: 100%;
+    height: 100%;
 }
 
-.name-holder {
-    height: 50px;
-    width: 400px;
-    background-color: greenyellow;
-    position: absolute;
-    bottom: -25px;
-
-    @media screen and (max-width: 768px) {
-       width: 250px;
-    }
+.bride {
+    background: url('../assets/images/bride-character.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    width: 100%;
+    height: 100%;
 }
 
-.dialog-content {
-    text-align: left;
-    padding: 32px 24px 16px 24px;
-    font-size: 24px;
+.vow {
     font-family: 'Lato', sans-serif;
+    padding: 16px;
+    font-size: 24px;
+    border-radius: 8px;
+    width: 98%;
+    background: rgba(255, 255, 255, 0.635);
+    margin-left: 8px;
 
     @media screen and (max-width: 768px) {
-        text-align: left;
-        padding: 32px 8px 16px 8px;
-        font-size: 16px;
-     }
+        width: 100%;
+        font-size: 22px;
+    }
 }

@@ -3,12 +3,17 @@ import styles from '../styles/Chapter_2.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 // import Image from 'next/image'
 import Menu from '../components/Menu'
+import { groomSpeech1, groomSpeech2, brideSpeech1, brideSpeech2 } from '../constants/vows'
 
 export default function Chapter_2({ activeMenu, goToChapter, next }) {
     const [title, setTitle] = useState(true)
     const [content, setContent] = useState(false)
-    const [groomTalking, setGroomTalking] = useState(false)
-    const [brideTalking, setBrideTalking] = useState(true)
+    const [groomTalking, setGroomTalking] = useState(true)
+    const [brideTalking, setBrideTalking] = useState(false)
+    const [groomSpeech_1, setGroomSpeech_1] = useState(true)
+    const [groomSpeech_2, setGroomSpeech_2] = useState(false)
+    const [brideSpeech_1, setBrideSpeech_1] = useState(false)
+    const [brideSpeech_2, setBrideSpeech_2] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
@@ -23,19 +28,35 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
         setTimeout(() => {
             dialogues = setInterval(() => {
                 if (!!groomTalking) {
-                    console.log('set bride')
-                    setGroomTalking(false)
-                    setBrideTalking(true)
+                    // setBrideTalking(true)
+                    // setGroomTalking(false)
+                    if (!!groomSpeech_1) {
+                        setGroomSpeech_1(false)
+                        setGroomSpeech_2(true)
+                    } else {
+                        setGroomTalking(false)
+                        setGroomSpeech_2(false)
+                        setBrideTalking(true)
+                        setBrideSpeech_1(true)
+                    }
                 } else if (!!brideTalking) {
-                    console.log('set groom')
-                    setBrideTalking(false)
-                    setGroomTalking(true)
+                        // setBrideSpeech_2(false)
+                        // setGroomTalking(true)
+                    if (!!brideSpeech_1) {
+                        setBrideSpeech_1(false)
+                        setBrideSpeech_2(true)
+                    } else {
+                        setBrideTalking(false)
+                        setBrideSpeech_2(false)
+                        setGroomTalking(true)
+                        setGroomSpeech_1(true)
+                    }
                 }
-            }, 4000)
+            }, 10000)
         }, 2000);
 
         return () => clearInterval(dialogues);
-    }, [groomTalking, brideTalking])
+    }, [groomTalking, brideTalking, groomSpeech_1, groomSpeech_2, brideSpeech_1, brideSpeech_2])
 
     return (
         <motion.div
@@ -63,59 +84,89 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
                             className={styles['chapter-2-content']}>
-                            <div className={styles['dialog-container']}>
-                                <div className={styles['character-holder']}>
-                                    <AnimatePresence exitBeforeEnter>
-                                        {brideTalking &&
-                                            <motion.div
-                                                key={'bride'}
-                                                initial={{ opacity: 0, translateX: -20 }}
-                                                animate={{ opacity: 1, translateX: 0 }}
-                                                exit={{ opacity: 0, translateX: -20 }}
-                                                transition={{ duration: 1 }}>
-                                                <div className={styles['character']}></div>
-                                                <div className={styles['name-holder']}></div>
-                                            </motion.div>
-                                        }
-
-                                        {groomTalking &&
-                                            <motion.div
-                                                key={'groom'}
-                                                initial={{ opacity: 0, translateX: -20 }}
-                                                animate={{ opacity: 1, translateX: 0 }}
-                                                exit={{ opacity: 0, translateX: -20 }}
-                                                transition={{ duration: 1 }}
-                                            >
-                                                <div className={`${styles['character']} ${styles.groom}`}></div>
-                                                <div className={styles['name-holder']}></div>
-                                            </motion.div>
-                                        }
-                                    </AnimatePresence>
-                                </div>
+                            <div className={styles['content-container']}>
+                                <div className={`${styles['content-item']} ${styles['content-left']}`}>
                                 <AnimatePresence exitBeforeEnter>
                                     {
-                                        groomTalking &&
+                                        groomTalking && 
                                         <motion.div
-                                            key={'groomVow'}
-                                            initial={{ opacity: 0}}
-                                            animate={{ opacity: 1}}
-                                            exit={{ opacity: 0}}
-                                            transition={{ duration: 1 }}
-                                            className={`${styles['dialog-content']} ${styles['groom-content']}`}>all this years, I&apos;ve been thinking about the same thing over and over. We started off just as two people who knows each other&apos;s name, to people who are in the same highschool club together to being friends who tease each other so much, to being best friends, to being girlfriend and boyfriend, and now finally we&apos;re officially gonna be together for the rest of our life. I&apos;m very grateful to have met you and I can&apos;t wait to see the beautiful memories we&apos;re going to unfold together. I love you forever Novi Andriany.</motion.div>
+                                        key={'groom'}
+                                        initial={{ opacity: 0, translateX: '-110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '-110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={`${styles['character']} ${styles['groom']}`}>
+                                        </motion.div>
                                     }
                                     {
-                                        brideTalking &&
+                                        brideTalking && 
                                         <motion.div
-                                            key={'brideVow'}
-                                            initial={{ opacity: 0}}
-                                            animate={{ opacity: 1}}
-                                            exit={{ opacity: 0}}
-                                            transition={{ duration: 1 }}
-                                            className={`${styles['dialog-content']} ${styles['bride-content']}`}>Bride Vow</motion.div>
+                                        key={'bride'}
+                                        initial={{ opacity: 0, translateX: '-110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '-110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={`${styles['character']} ${styles['bride']}`}>
+                                        </motion.div>
                                     }
                                 </AnimatePresence>
+                                </div>
+                                <div className={`${styles['content-item']} ${styles['content-right']}`}>
+                                <div className={styles['vow-content']}>
+                                    <AnimatePresence exitBeforeEnter>
+                                    {
+                                        groomSpeech_1 && 
+                                        <motion.div
+                                        key={'groom-first-dpeech'}
+                                        initial={{ opacity: 0, translateX: '110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={styles['vow']}>
+                                            {groomSpeech1}
+                                        </motion.div>
+                                    }
+                                    {
+                                        groomSpeech_2 && 
+                                        <motion.div
+                                        key={'groom-second-dpeech'}
+                                        initial={{ opacity: 0, translateX: '110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={styles['vow']}>
+                                            {groomSpeech2}
+                                        </motion.div>
+                                    }
+                                    {
+                                        brideSpeech_1 && 
+                                        <motion.div
+                                        key={'bride-first-dpeech'}
+                                        initial={{ opacity: 0, translateX: '110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={styles['vow']}>
+                                            {brideSpeech1}
+                                        </motion.div>
+                                    }
+                                    {
+                                        brideSpeech_2 && 
+                                        <motion.div
+                                        key={'bride-second-dpeech'}
+                                        initial={{ opacity: 0, translateX: '110%' }}
+                                        animate={{ opacity: 1, translateX: '0%' }}
+                                        exit={{ opacity: 0, translateX: '110%' }}
+                                        transition={{ duration: 1 }}
+                                        className={styles['vow']}>
+                                            {brideSpeech2}
+                                        </motion.div>
+                                    }
+                                    </AnimatePresence>
+                                </div>
+                                </div>
                             </div>
-                            <Menu toggleZindex={()=> {}} active={2} next={next} goToChapter={goToChapter} />
+                            <Menu toggleZindex={() => { }} active={2} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 
