@@ -8,6 +8,7 @@ body {
   font-family: 'Cinzel Decorative', cursive;
   height: 100%;
   width: 100%;
+  color: #444;
 }
 
 #__next {
@@ -68,7 +69,8 @@ a {
   height: 100%;
   padding: 0 24px;
   background: rgba(255, 255, 255, 0.6);
-  overflow: hidden;
+  overflow: auto;
+  position: relative;
 }
 
 
@@ -94,6 +96,7 @@ a {
   font-weight: 700;
   font-size: 40px;
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .chapter-title-content {
