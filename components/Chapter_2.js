@@ -186,8 +186,8 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                         </motion.div>
                                     }
                                     </AnimatePresence>
-                                </div>
                                 <button onClick={nextSpeech} className={styles['next-speech-button']}>{'>>'}</button>
+                                </div>
                                 </div>
                             </div>
                             <Menu toggleZindex={() => { }} active={2} next={next} goToChapter={goToChapter} />

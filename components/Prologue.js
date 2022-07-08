@@ -21,9 +21,9 @@ export default function Prologue({next}) {
         if(currentSpeech === 0) {
             startFirstSpeech()
         } else {
-            // timeOutDialogue = setTimeout(() => {
-            //     playDialogue(currentSpeech)
-            // }, 5000);
+            timeOutDialogue = setTimeout(() => {
+                playDialogue(currentSpeech)
+            }, 5000);
         
     }
     }, [currentSpeech])
