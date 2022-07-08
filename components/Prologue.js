@@ -7,68 +7,154 @@ export default function Prologue({next}) {
     const [groomTalking, setGroomTalking] = useState(true)
     const [brideTalking, setBrideTalking] = useState(true)
 
+    const [currentSpeech, setCurrentSpeech] = useState(0)
     const [firstSpeech, setFirstSpeech] = useState(false)
     const [secondSpeech, setSecondSpeech] = useState(false)
     const [thirdSpeech, setThirdSpeech] = useState(false)
     const [fourthSpeech, setFourthSpeech] = useState(false)
-    const [fifthhSpeech, setFifthSpeech] = useState(false)
+    const [fifthSpeech, setFifthSpeech] = useState(false)
+
+    let startPage
+    let timeOutDialogue
 
     useEffect(() => {
+        if(currentSpeech === 0) {
+            startFirstSpeech()
+        } else {
+            // timeOutDialogue = setTimeout(() => {
+            //     playDialogue(currentSpeech)
+            // }, 5000);
+        
+    }
+    }, [currentSpeech])
+
+    const startFirstSpeech = ()=> {
         const clickSound = document.getElementById('speech-effect')
         const prologueTheme = document.getElementById('prologue-theme')
         prologueTheme.loop = true
-        
-        setTimeout(() => {
-            setFirstSpeech(true)
-            clickSound.play()
-            prologueTheme.play()
-        }, 1000);
+
+        setCurrentSpeech(1)
+                setFirstSpeech(true)
+                clickSound.play()
+                prologueTheme.play()
+    }
+
+    const startSecondSpeech = () => {
+        const clickSound = document.getElementById('speech-effect')
+
+        setCurrentSpeech(2)
+        clickSound.play()
+        setBrideTalking(false)
+        setFirstSpeech(false)
+        setSecondSpeech(true)
+    }
+
+    const startThirdSpeech = ()=> {
+        const clickSound = document.getElementById('speech-effect')
+
+        setCurrentSpeech(3)
+        clickSound.play()
+        setBrideTalking(true)
+        setGroomTalking(false)
+        setSecondSpeech(false)
+        setThirdSpeech(true)
+    }
+
+    const startFourthSpeech = () => {
+        const clickSound = document.getElementById('speech-effect')
+        const prologueTheme = document.getElementById('prologue-theme')
+        prologueTheme.loop = true
+
+        setCurrentSpeech(4)
+        clickSound.play()
+        setGroomTalking(true)
+        setThirdSpeech(false)
+        setFourthSpeech(true)
+    }
+
+    const startFifthSpeech = () => {
+        const clickSound = document.getElementById('speech-effect')
+        const prologueTheme = document.getElementById('prologue-theme')
+        prologueTheme.loop = true
+
+        setCurrentSpeech(5)
+        clickSound.play()
+        setFourthSpeech(false)
+        setFifthSpeech(true)
+
+        const fadeAudio = setInterval(() => {
+            // Only fade if past the fade out point or not at zero already
+            if (prologueTheme.volume != 0) {
+                prologueTheme.volume = Math.max(0, prologueTheme.volume - 0.005)
+            }
+            // When volume at zero stop all the intervalling
+            if (prologueTheme.volume === 0) {
+                clearInterval(fadeAudio);
+                prologueTheme.pause()
+                prologueTheme.currentTime = 0;
+            }
+        }, 50);
 
         setTimeout(() => {
-            clickSound.play()
-            setBrideTalking(false)
-            setFirstSpeech(false)
-            setSecondSpeech(true)
-        }, 5500);
-
-        setTimeout(() => {
-            clickSound.play()
-            setBrideTalking(true)
-            setGroomTalking(false)
-            setSecondSpeech(false)
-            setThirdSpeech(true)
-        }, 10500);
-
-        setTimeout(() => {
-            clickSound.play()
-            setGroomTalking(true)
-            setThirdSpeech(false)
-            setFourthSpeech(true)
-        }, 15500);
-
-        setTimeout(() => {
-            clickSound.play()
-            setFourthSpeech(false)
-            setFifthSpeech(true)
-
-            const fadeAudio = setInterval(() => {
-                // Only fade if past the fade out point or not at zero already
-                if (prologueTheme.volume != 0) {
-                    prologueTheme.volume = Math.max(0, prologueTheme.volume - 0.005)
-                }
-                // When volume at zero stop all the intervalling
-                if (prologueTheme.volume === 0) {
-                    clearInterval(fadeAudio);
-                    prologueTheme.pause()
-                    prologueTheme.currentTime = 0;
-                }
-            }, 50);
-        }, 20500);
-
-        setTimeout(() => {
+            clearInterval(startPage)
             next()
-        }, 23500);
-    }, [])
+        }, 2000);
+    }
+
+    const skipOne = (speechNumber) => {
+        clearTimeout(timeOutDialogue)
+        console.log(speechNumber)
+        switch (speechNumber) {
+            case 0:
+                startFirstSpeech()
+                break;
+            case 1:
+                startSecondSpeech()
+                break;
+            case 2:
+                startThirdSpeech()
+                break;
+            case 3:
+                startFourthSpeech()
+                break;
+            case 4:
+                startFifthSpeech()
+                break;
+            case 5:
+                clearInterval(startPage)
+                next()
+            break;
+            default:
+                break;
+        }
+    }
+
+
+    const playDialogue = (speechNumber) => {
+            switch (speechNumber) {
+                case 0:
+                setTimeout(() => {
+                    startFifthSpeech()
+                }, 1000);  
+                    break;
+                case 1:
+                        startSecondSpeech()
+                    break;
+                case 2:
+                        startThirdSpeech()              
+                    break;
+                case 3:
+                        startFourthSpeech()
+                    break;
+                case 4:
+                        startFifthSpeech()
+                    break;
+                default:
+                    clearInterval(startPage)
+                    next()
+                    break;
+            }
+    }
 
     return (
         <motion.div
@@ -151,7 +237,7 @@ export default function Prologue({next}) {
                         </motion.div>
                     }
 
-                    {fifthhSpeech &&
+                    {fifthSpeech &&
                         <motion.div
                             animate={{
                                 opacity: [0, 50, 100]
@@ -160,7 +246,11 @@ export default function Prologue({next}) {
                             <div className={styles['dialogue-content']}>We&apos;ll see you guys really soon!</div>
                         </motion.div>
                     }
+                    
                 </motion.div>
+                <button onClick={() => skipOne(currentSpeech)} className={styles['skip-one-button']}>
+                        Skip
+                </button>
             </div>
         </motion.div>
     )

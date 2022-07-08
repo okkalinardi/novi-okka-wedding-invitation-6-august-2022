@@ -152,7 +152,7 @@
 
     @media screen and (max-width: 768px) {
         width: 100%;
-        height: 100%;
+        height: unset;
         max-height: 100%;
         background: linear-gradient(90deg, #d0e0fd 53%, rgba(255,255,255,1) 100%);
         overflow-y: scroll;
@@ -195,9 +195,9 @@
     cursor: pointer;
     background: linear-gradient(90deg, #d0e0fd 53%, #FAF8f6 100%);
 
-    // &.active {
-    //     background: linear-gradient(90deg, #d0e0fd 53%, #FAF8f6 100%);
-    // }
+    &.active {
+        background: linear-gradient(90deg, #8cb1f7 53%, #FAF8f6 100%);
+    }
 
     &:first-child {
         border-radius: 8px 0 0 0;
@@ -213,8 +213,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        // background: linear-gradient(90deg, rgba(208,224,253,1) 53%, rgba(255,255,255,1) 100%);
-        // background: url('../assets/images/sunflower-banner.png');
 
         &:hover, &.active {
             border: 3px solid #3fdfd9;

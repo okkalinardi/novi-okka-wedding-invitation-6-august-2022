@@ -31,7 +31,8 @@
 
 .content-right {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .groom {
@@ -66,5 +67,24 @@
     @media screen and (max-width: 768px) {
         width: 100%;
         font-size: 22px;
+        margin-top: 8px;
+    }
+}
+
+.next-speech-button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    margin: 8px auto;
+    cursor: pointer;
+    font-size: 20px;
+    color: #181a49;
+
+    @media screen and (max-width: 768px) {
+        position: absolute;
+        bottom: 48%;
+        right: 50px;
     }
 }

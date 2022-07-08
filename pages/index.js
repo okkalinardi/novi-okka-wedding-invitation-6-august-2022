@@ -31,6 +31,7 @@ export default function Home() {
     setPrologueModal(false)
     setlanding(false)
     setprologue(true)
+    setActiveSection('prologue')
   }
   const skipPrologue = () => {
     const audio = document.getElementById('enter-sound')
@@ -114,11 +115,11 @@ export default function Home() {
   }
 
   const activateChapter_1 = () => {
+    setActiveSection('chapter_1')
     const mainTheme = document.getElementById('main-theme')
     mainTheme.loop = true
     mainTheme.play()
     setChapter_1(true)
-    setActiveSection('chapter_1')
   }
 
   const goToChapter = (chapterNumber) => {

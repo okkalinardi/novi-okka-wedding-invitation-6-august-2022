@@ -1,4 +1,4 @@
-export const groomSpeech1 = `all this years, I've been thinking about the same thing over and over. We started off just as two people who knows each other's name, to people who are in the same highschool club together to being friends who tease each other so much`
+export const groomSpeech1 = `All this years, I've been thinking about the same thing over and over. We started off just as two people who knows each other's name, to people who are in the same highschool club together to being friends who tease each other so much`
 
 export const groomSpeech2 = `to being best friends, to being girlfriend and boyfriend, and now finally we're officially gonna be together for the rest of our life. I'm very grateful to have met you and I can't wait to see the beautiful memories we're going to unfold together. I love you forever Novi Andriany.`
 

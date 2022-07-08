@@ -22,14 +22,14 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
         }, 2000);
     }, [])
 
+    let dialogueTimeOut
+
     useEffect(() => {
         let dialogues
 
-        setTimeout(() => {
+        dialogueTimeOut = setTimeout(() => {
             dialogues = setInterval(() => {
                 if (!!groomTalking) {
-                    // setBrideTalking(true)
-                    // setGroomTalking(false)
                     if (!!groomSpeech_1) {
                         setGroomSpeech_1(false)
                         setGroomSpeech_2(true)
@@ -40,8 +40,6 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                         setBrideSpeech_1(true)
                     }
                 } else if (!!brideTalking) {
-                        // setBrideSpeech_2(false)
-                        // setGroomTalking(true)
                     if (!!brideSpeech_1) {
                         setBrideSpeech_1(false)
                         setBrideSpeech_2(true)
@@ -57,6 +55,31 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
 
         return () => clearInterval(dialogues);
     }, [groomTalking, brideTalking, groomSpeech_1, groomSpeech_2, brideSpeech_1, brideSpeech_2])
+
+    const nextSpeech = () => {
+        clearTimeout(dialogueTimeOut)
+        if (!!groomTalking) {
+            if (!!groomSpeech_1) {
+                setGroomSpeech_1(false)
+                setGroomSpeech_2(true)
+            } else {
+                setGroomTalking(false)
+                setGroomSpeech_2(false)
+                setBrideTalking(true)
+                setBrideSpeech_1(true)
+            }
+        } else if (!!brideTalking) {
+            if (!!brideSpeech_1) {
+                setBrideSpeech_1(false)
+                setBrideSpeech_2(true)
+            } else {
+                setBrideTalking(false)
+                setBrideSpeech_2(false)
+                setGroomTalking(true)
+                setGroomSpeech_1(true)
+            }
+        }
+    }
 
     return (
         <motion.div
@@ -164,6 +187,7 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                     }
                                     </AnimatePresence>
                                 </div>
+                                <button onClick={nextSpeech} className={styles['next-speech-button']}>Next</button>
                                 </div>
                             </div>
                             <Menu toggleZindex={() => { }} active={2} next={next} goToChapter={goToChapter} />
