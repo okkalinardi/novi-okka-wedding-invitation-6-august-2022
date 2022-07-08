@@ -67,7 +67,6 @@ export default function Chapter_5({ activeMenu, goToChapter, next }) {
                                 
                             </div>
 
-                            <Dialogue speeches={speeches} />
                             <Menu toggleZindex={()=> {}} active={5} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }

@@ -71,14 +71,16 @@ export default function Menu({ active, next, goToChapter, toggleZindex}) {
     }
 
     const handleNext = () => {
-        const audio = document.getElementById('enter-sound')
-        audio.play()
-        next()
+        if(active !==6) {
+            const audio = document.getElementById('enter-sound')
+            audio.play()
+            next()
+        }
     }
 
     return (
         <div className={styles['menu-container']}>
-            <button type='button' onClick={handleNext} title="Next Chapter" className={styles['next-button']}>
+            <button type='button' onClick={handleNext} title="Next Chapter" className={`${styles['next-button']} ${active === 6 ? styles['disabled'] : ''}`}>
                 <Image
                     src={Arrow}
                     alt=''
@@ -91,6 +93,7 @@ export default function Menu({ active, next, goToChapter, toggleZindex}) {
                     alt=''
                     className={styles['menu-logo']}
                 />
+                <div className={`${styles['menu-caption']}`}>Select Chapter</div>
             </button>
             <button type='button' onClick={playPauseMainTheme} title={audioPlaying ? 'Turn Off Music' : 'Turn On Music'} className={`${styles['menu-button']} ${styles['music-button']}`}>
                 <Image
@@ -98,6 +101,7 @@ export default function Menu({ active, next, goToChapter, toggleZindex}) {
                     alt=''
                     className={styles['music-logo']}
                 />
+                <div className={`${styles['menu-caption']}`}>Music: {audioPlaying ? 'on' : 'off'}</div>
             </button>
             <AnimatePresence>
                 {menuModal &&

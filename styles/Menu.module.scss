@@ -56,6 +56,11 @@
         background: #b9e2f59a;
         height: 100% !important;
     }
+
+    &.disabled {
+        filter: grayscale(1);
+        cursor: not-allowed;
+    }
 }
 
 .chapter-list-button {
@@ -76,6 +81,13 @@
         @media screen and (max-width: 768px) {
             animation: none;
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 65px !important;
+        min-width: 65px !important;
+        height: 65px !important;
+        min-height: 65px !important;
     }
 }
 
@@ -102,6 +114,13 @@
         @media screen and (max-width: 768px) {
             animation: none;
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 65px !important;
+        min-width: 65px !important;
+        height: 65px !important;
+        min-height: 65px !important;
     }
 }
 
@@ -371,5 +390,15 @@
             font-size: 10px;
             line-height: 20px;
         }
+    }
+}
+
+.menu-caption {
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: block;
+        margin-top: -8px;
+        font-size: 8px;
+        color: #070828;
     }
 }

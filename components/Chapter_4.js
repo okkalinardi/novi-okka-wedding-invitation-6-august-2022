@@ -67,7 +67,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
         messageObject.avatar = chosenAvatar
         messageObject.sender = sender
 
-        const res = await fetch('http://localhost:3000/api/comments', {
+        const res = await fetch('/api/comments', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
 
     const fetchComments = async ()=> {
         try {
-          const res = await fetch('http://localhost:3000/api/comments')
+          const res = await fetch('/api/comments')
         const data = await res.json()
         setMessages([...data])
         } catch (error) {
