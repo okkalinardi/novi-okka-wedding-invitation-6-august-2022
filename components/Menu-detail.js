@@ -3,12 +3,12 @@ import styles from '../styles/Menu-details.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import PrologueImage from '../assets/images/prologue_bg.png'
-import FirstChapterImage from '../assets/images/chapter_1_bg.png'
-import SecondChapterImage from '../assets/images/chapter_2_bg.png'
-import ThirdChapterImage from '../assets/images/chapter_3_bg.png'
-import FourthChapterImage from '../assets/images/chapter_4_bg.png'
-import FifthChapterImage from '../assets/photos/chapter_5_bg.jpg'
-import SixthChapterImage from '../assets/photos/chapter_6_bg.jpg'
+// import FirstChapterImage from '/chapter_1_bg.png'
+// import SecondChapterImage from '/chapter_2_bg.png'
+// import ThirdChapterImage from '/chapter_3_bg.png'
+// import FourthChapterImage from '/chapter_4_bg.png'
+// import FifthChapterImage from '/chapter_5_bg.jpg'
+// import SixthChapterImage from '/chapter_6_bg.jpg'
 
 export default function MenuDetails({ activeMenu }) {
 
@@ -37,9 +37,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={FirstChapterImage}
+                            src='/chapter_1_bg.png'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
 
@@ -50,9 +51,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={SecondChapterImage}
+                            src='/chapter_2_bg.png'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
 
@@ -63,9 +65,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={ThirdChapterImage}
+                            src='/chapter_3_bg.png'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
 
@@ -76,9 +79,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={FourthChapterImage}
+                            src='/chapter_4_bg.png'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
 
@@ -89,9 +93,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={FifthChapterImage}
+                            src='/chapter_5_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
 
@@ -102,9 +107,10 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src={SixthChapterImage}
+                            src='/chapter_6_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
+                            layout="fill"
                         />
                     </motion.div>}
                 </AnimatePresence>

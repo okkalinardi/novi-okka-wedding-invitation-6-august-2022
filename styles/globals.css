@@ -31,35 +31,35 @@ a {
 }
 
 .chapter-1-background {
-  background: url('../assets/images/chapter_1_bg.png') no-repeat center center fixed;
+  background: url('/chapter_1_bg.png') no-repeat center center fixed;
   background-size: cover;
 }
 
 .chapter-2-background {
-  background: url('../assets/images/chapter_2_bg.png') no-repeat center center fixed;
+  background: url('/chapter_2_bg.png') no-repeat center center fixed;
   background-size: cover;
 }
 
 .chapter-3-background {
-  background: url('../assets/images/chapter_3_bg.png') no-repeat center center fixed;
+  background: url('/chapter_3_bg.png') no-repeat center center fixed;
   background-size: cover;
   background-position: bottom;
 }
 
 .chapter-4-background {
-  background: url('../assets/images/chapter_4_bg.png') no-repeat center center fixed;
+  background: url('/chapter_4_bg.png') no-repeat center center fixed;
   background-size: cover;
   background-position: bottom;
 }
 
 .chapter-5-background {
-  background: url('../assets/photos/chapter_5_bg.jpg') no-repeat center center fixed;
+  background: url('/chapter_5_bg.jpg') no-repeat center center fixed;
   background-size: cover;
   background-position: bottom;
 }
 
 .chapter-6-background {
-  background: url('../assets/photos/chapter_6_bg.jpg') no-repeat center center fixed;
+  background: url('/chapter_6_bg.jpg') no-repeat center center fixed;
   background-size: cover;
   background-position: bottom;
 }
