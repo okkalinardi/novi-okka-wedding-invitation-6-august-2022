@@ -19,6 +19,7 @@ import avatar12 from '../assets/images/avatar-12.png'
 import avatar13 from '../assets/images/avatar-13.png'
 import avatar14 from '../assets/images/avatar-14.png'
 import avatar15 from '../assets/images/avatar-15.png'
+import loader from '../assets/images/loader.gif'
 
 export default function Chapter_4({ activeMenu, goToChapter, next }) {
     const [title, setTitle] = useState(true)
@@ -30,6 +31,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
     const [sender, setSender] = useState('')
     const [message, setMessage] = useState('')
     const [zIndex, setZindex] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const toggleZindex = (value) => {
         if(!!value) {
@@ -56,12 +58,12 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
     }
 
     const chooseAvatar = (avatar) => {
-        console.log(avatar)
         setChosenAvatar(avatar)
         toggleMenuModal()
     }
 
     const submitMessage = async () => {
+        setLoading(true)
         const messageObject = {message: '',avatar: null, sender: ''}
         messageObject.message = message
         messageObject.avatar = chosenAvatar
@@ -74,25 +76,27 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
             },
             body: JSON.stringify(messageObject)
           })
-
-        // setMessages([...messages, messageObject])
+        
+        setMessage('')
+        setSender('')
+        setChosenAvatar(0)
 
         fetchComments()
-
-        setTimeout(() => {
-            setMessage('')
-            setSender('')
-            setChosenAvatar(0)
-        }, 1500);
+        setLoading(false)
+        var objDiv = document.getElementById("message-screen");
+        objDiv.scrollTop = 0;
     }
 
     const fetchComments = async ()=> {
         try {
+            setLoading(true)
           const res = await fetch('/api/comments')
         const data = await res.json()
-        setMessages([...data])
+        setMessages([...data].reverse())
         } catch (error) {
           console.log(error, 'ERROR')
+        } finally {
+            setLoading(false)
         }
       }
 
@@ -126,7 +130,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                             <div className={styles['content-title']}>Message Area</div>
                             {/* <div className={styles['content-intro']}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet lectus ultricies, laoreet tortor vel, iaculis mauris. Sed dignissim scelerisque nunc, maximus efficitur lacus semper ut. Nulla ultricies quam sed metus eleifend congue. Vestibulum facilisis magna orci, nec egestas libero euismod at. Mauris id ligula bibendum, euismod diam nec, cursus felis. Proin vulputate lorem non nunc lobortis aliquet. Aliquam facilisis rutrum nibh. Praesent viverra, neque eu pharetra tempus, ipsum ex eleifend nunc, nec feugiat nunc ex vitae arcu. Nunc sed quam consequat, eleifend ligula ut, dignissim velit. Phasellus imperdiet maximus sapien et semper. Duis eget feugiat eros, quis vestibulum justo. Aliquam eget fermentum eros. Nulla facilisi. Suspendisse vitae egestas sapien. Etiam laoreet sollicitudin risus id auctor.</div> */}
                             <div className={styles['message-monitor']}>
-                                <div className={styles['message-screen']}>
+                                <div id='message-screen' className={styles['message-screen']}>
 
                                     {
                                         messages.map((message, i) => {
@@ -196,7 +200,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                     <input required placeholder='Enter your name here' type="text" value={sender} onChange={(event) => setSender(event.target.value)} className={styles['message-sender-input']} />
                                     <textarea required placeholder='Leave a message' className={styles['message-content-input']} value={message} onChange={(event) => setMessage(event.target.value)} />
                                 </div>
-                                <button className={styles['send-message-button']} type="submit">Send</button>
+                                <button disabled={loading} className={styles['send-message-button']} type="submit">Send</button>
                             </form>
 
 
@@ -237,6 +241,32 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                     </motion.div>
                                 }
                             </AnimatePresence>
+
+                            <AnimatePresence>
+                {loading &&
+                    <motion.div
+                        key={'loading-modal'}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className={styles['avatar-picker-modal']}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0 }}
+                            transition={{ duration: 1 }}
+                            className={styles['loading-container']}
+                            key={'loading-container'}
+                        >
+                            <Image
+                                src={loader}
+                                alt=''
+                            />
+                        </motion.div>
+                    </motion.div>
+                }
+            </AnimatePresence>
 
 
                             {/* <Dialogue speeches={speeches} /> */}
