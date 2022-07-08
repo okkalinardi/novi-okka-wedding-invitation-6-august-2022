@@ -193,8 +193,8 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                                     />
                                 </div>
                                 <div className={styles['message-input-section']}>
-                                    <input placeholder='Enter your name here' type="text" value={sender} onChange={(event) => setSender(event.target.value)} className={styles['message-sender-input']} />
-                                    <textarea placeholder='Leave a message' className={styles['message-content-input']} value={message} onChange={(event) => setMessage(event.target.value)} />
+                                    <input required placeholder='Enter your name here' type="text" value={sender} onChange={(event) => setSender(event.target.value)} className={styles['message-sender-input']} />
+                                    <textarea required placeholder='Leave a message' className={styles['message-content-input']} value={message} onChange={(event) => setMessage(event.target.value)} />
                                 </div>
                                 <button className={styles['send-message-button']} type="submit">Send</button>
                             </form>
