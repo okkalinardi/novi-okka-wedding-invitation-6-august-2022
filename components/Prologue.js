@@ -249,7 +249,7 @@ export default function Prologue({next}) {
                     
                 </motion.div>
                 <button onClick={() => skipOne(currentSpeech)} className={styles['skip-one-button']}>
-                        Skip
+                        {'>>'}
                 </button>
             </div>
         </motion.div>
