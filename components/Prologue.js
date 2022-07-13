@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../styles/Prologue.module.scss'
 import { motion } from 'framer-motion'
+import nextArrow from '../assets/images/double-arrow.svg'
+import Image from 'next/image'
 
-export default function Prologue({next}) {
+export default function Prologue({ next }) {
     const [brideAndGroom, setBrideAndGroom] = useState(true)
     const [groomTalking, setGroomTalking] = useState(true)
     const [brideTalking, setBrideTalking] = useState(true)
@@ -18,25 +20,25 @@ export default function Prologue({next}) {
     let timeOutDialogue
 
     useEffect(() => {
-        if(currentSpeech === 0) {
+        if (currentSpeech === 0) {
             startFirstSpeech()
         } else {
             timeOutDialogue = setTimeout(() => {
                 playDialogue(currentSpeech)
             }, 5000);
-        
-    }
+
+        }
     }, [currentSpeech])
 
-    const startFirstSpeech = ()=> {
+    const startFirstSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
         const prologueTheme = document.getElementById('prologue-theme')
         prologueTheme.loop = true
 
         setCurrentSpeech(1)
-                setFirstSpeech(true)
-                clickSound.play()
-                prologueTheme.play()
+        setFirstSpeech(true)
+        clickSound.play()
+        prologueTheme.play()
     }
 
     const startSecondSpeech = () => {
@@ -49,7 +51,7 @@ export default function Prologue({next}) {
         setSecondSpeech(true)
     }
 
-    const startThirdSpeech = ()=> {
+    const startThirdSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
 
         setCurrentSpeech(3)
@@ -123,7 +125,7 @@ export default function Prologue({next}) {
             case 5:
                 clearInterval(startPage)
                 next()
-            break;
+                break;
             default:
                 break;
         }
@@ -131,29 +133,29 @@ export default function Prologue({next}) {
 
 
     const playDialogue = (speechNumber) => {
-            switch (speechNumber) {
-                case 0:
+        switch (speechNumber) {
+            case 0:
                 setTimeout(() => {
                     startFifthSpeech()
-                }, 1000);  
-                    break;
-                case 1:
-                        startSecondSpeech()
-                    break;
-                case 2:
-                        startThirdSpeech()              
-                    break;
-                case 3:
-                        startFourthSpeech()
-                    break;
-                case 4:
-                        startFifthSpeech()
-                    break;
-                default:
-                    clearInterval(startPage)
-                    next()
-                    break;
-            }
+                }, 1000);
+                break;
+            case 1:
+                startSecondSpeech()
+                break;
+            case 2:
+                startThirdSpeech()
+                break;
+            case 3:
+                startFourthSpeech()
+                break;
+            case 4:
+                startFifthSpeech()
+                break;
+            default:
+                clearInterval(startPage)
+                next()
+                break;
+        }
     }
 
     return (
@@ -246,10 +248,17 @@ export default function Prologue({next}) {
                             <div className={styles['dialogue-content']}>We&apos;ll see you guys really soon!</div>
                         </motion.div>
                     }
-                    
+
                 </motion.div>
                 <button onClick={() => skipOne(currentSpeech)} className={styles['skip-one-button']}>
-                        {'>>'}
+                    <div className={styles['next-arrow-icon-container']}>
+                        <Image
+                            src={nextArrow}
+                            // layout='fill'
+                            className={styles['next-arrow-icon']}
+                            alt=''
+                        />
+                    </div>
                 </button>
             </div>
         </motion.div>

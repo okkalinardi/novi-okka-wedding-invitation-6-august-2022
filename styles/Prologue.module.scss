@@ -129,14 +129,19 @@
     position: absolute;
     bottom: 25px;
     right: 16px;
-    font-size: 20px;
-    color: #181a49;
     cursor: pointer;
-    font-weight: 700;
 
     @media only screen and (max-width: 768px) {
         top: 32px;
         background: white;
-        font-size: 18px;
     }
 }
+
+.next-arrow-icon-container {
+    width: 45px;
+    margin: auto;
+  }
+  
+  .next-arrow-icon {
+    transform: rotateZ(180deg);
+  }

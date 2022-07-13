@@ -90,3 +90,13 @@
         right: 50px;
     }
 }
+
+.next-arrow-icon-container {
+    width: 45px;
+    margin: auto;
+  }
+  
+  .next-arrow-icon {
+    transform: rotateZ(180deg);
+  }
+  

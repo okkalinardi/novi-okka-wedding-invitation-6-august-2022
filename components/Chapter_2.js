@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Chapter_2.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
-// import Image from 'next/image'
+import Image from 'next/image'
 import Menu from '../components/Menu'
 import { groomSpeech1, groomSpeech2, brideSpeech1, brideSpeech2 } from '../constants/vows'
+import nextArrow from '../assets/images/double-arrow.svg'
 
 export default function Chapter_2({ activeMenu, goToChapter, next }) {
     const [title, setTitle] = useState(true)
@@ -109,85 +110,94 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                             className={styles['chapter-2-content']}>
                             <div className={styles['content-container']}>
                                 <div className={`${styles['content-item']} ${styles['content-left']}`}>
-                                <AnimatePresence exitBeforeEnter>
-                                    {
-                                        groomTalking && 
-                                        <motion.div
-                                        key={'groom'}
-                                        initial={{ opacity: 0, translateX: '-110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '-110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={`${styles['character']} ${styles['groom']}`}>
-                                        </motion.div>
-                                    }
-                                    {
-                                        brideTalking && 
-                                        <motion.div
-                                        key={'bride'}
-                                        initial={{ opacity: 0, translateX: '-110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '-110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={`${styles['character']} ${styles['bride']}`}>
-                                        </motion.div>
-                                    }
-                                </AnimatePresence>
+                                    <AnimatePresence exitBeforeEnter>
+                                        {
+                                            groomTalking &&
+                                            <motion.div
+                                                key={'groom'}
+                                                initial={{ opacity: 0, translateX: '-110%' }}
+                                                animate={{ opacity: 1, translateX: '0%' }}
+                                                exit={{ opacity: 0, translateX: '-110%' }}
+                                                transition={{ duration: 1 }}
+                                                className={`${styles['character']} ${styles['groom']}`}>
+                                            </motion.div>
+                                        }
+                                        {
+                                            brideTalking &&
+                                            <motion.div
+                                                key={'bride'}
+                                                initial={{ opacity: 0, translateX: '-110%' }}
+                                                animate={{ opacity: 1, translateX: '0%' }}
+                                                exit={{ opacity: 0, translateX: '-110%' }}
+                                                transition={{ duration: 1 }}
+                                                className={`${styles['character']} ${styles['bride']}`}>
+                                            </motion.div>
+                                        }
+                                    </AnimatePresence>
                                 </div>
                                 <div className={`${styles['content-item']} ${styles['content-right']}`}>
-                                <div className={styles['vow-content']}>
-                                    <AnimatePresence exitBeforeEnter>
-                                    {
-                                        groomSpeech_1 && 
-                                        <motion.div
-                                        key={'groom-first-dpeech'}
-                                        initial={{ opacity: 0, translateX: '110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={styles['vow']}>
-                                            {groomSpeech1}
-                                        </motion.div>
-                                    }
-                                    {
-                                        groomSpeech_2 && 
-                                        <motion.div
-                                        key={'groom-second-dpeech'}
-                                        initial={{ opacity: 0, translateX: '110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={styles['vow']}>
-                                            {groomSpeech2}
-                                        </motion.div>
-                                    }
-                                    {
-                                        brideSpeech_1 && 
-                                        <motion.div
-                                        key={'bride-first-dpeech'}
-                                        initial={{ opacity: 0, translateX: '110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={styles['vow']}>
-                                            {brideSpeech1}
-                                        </motion.div>
-                                    }
-                                    {
-                                        brideSpeech_2 && 
-                                        <motion.div
-                                        key={'bride-second-dpeech'}
-                                        initial={{ opacity: 0, translateX: '110%' }}
-                                        animate={{ opacity: 1, translateX: '0%' }}
-                                        exit={{ opacity: 0, translateX: '110%' }}
-                                        transition={{ duration: 1 }}
-                                        className={styles['vow']}>
-                                            {brideSpeech2}
-                                        </motion.div>
-                                    }
-                                    </AnimatePresence>
-                                <button onClick={nextSpeech} className={styles['next-speech-button']}>{'>>'}</button>
-                                </div>
+                                    <div className={styles['vow-content']}>
+                                        <AnimatePresence exitBeforeEnter>
+                                            {
+                                                groomSpeech_1 &&
+                                                <motion.div
+                                                    key={'groom-first-dpeech'}
+                                                    initial={{ opacity: 0, translateX: '110%' }}
+                                                    animate={{ opacity: 1, translateX: '0%' }}
+                                                    exit={{ opacity: 0, translateX: '110%' }}
+                                                    transition={{ duration: 1 }}
+                                                    className={styles['vow']}>
+                                                    {groomSpeech1}
+                                                </motion.div>
+                                            }
+                                            {
+                                                groomSpeech_2 &&
+                                                <motion.div
+                                                    key={'groom-second-dpeech'}
+                                                    initial={{ opacity: 0, translateX: '110%' }}
+                                                    animate={{ opacity: 1, translateX: '0%' }}
+                                                    exit={{ opacity: 0, translateX: '110%' }}
+                                                    transition={{ duration: 1 }}
+                                                    className={styles['vow']}>
+                                                    {groomSpeech2}
+                                                </motion.div>
+                                            }
+                                            {
+                                                brideSpeech_1 &&
+                                                <motion.div
+                                                    key={'bride-first-dpeech'}
+                                                    initial={{ opacity: 0, translateX: '110%' }}
+                                                    animate={{ opacity: 1, translateX: '0%' }}
+                                                    exit={{ opacity: 0, translateX: '110%' }}
+                                                    transition={{ duration: 1 }}
+                                                    className={styles['vow']}>
+                                                    {brideSpeech1}
+                                                </motion.div>
+                                            }
+                                            {
+                                                brideSpeech_2 &&
+                                                <motion.div
+                                                    key={'bride-second-dpeech'}
+                                                    initial={{ opacity: 0, translateX: '110%' }}
+                                                    animate={{ opacity: 1, translateX: '0%' }}
+                                                    exit={{ opacity: 0, translateX: '110%' }}
+                                                    transition={{ duration: 1 }}
+                                                    className={styles['vow']}>
+                                                    {brideSpeech2}
+                                                </motion.div>
+                                            }
+                                        </AnimatePresence>
+                                    </div>
+                                    <button onClick={nextSpeech} className={styles['next-speech-button']}>
+                                        <div className={styles['next-arrow-icon-container']}>
+                                            <Image
+                                                src={nextArrow}
+                                                // layout='fill'
+                                                className={styles['next-arrow-icon']}
+                                                alt=''
+                                            />
+                                        </div>
+                                    </button>
                                 </div>
                             </div>
                             <Menu toggleZindex={() => { }} active={2} next={next} goToChapter={goToChapter} />
