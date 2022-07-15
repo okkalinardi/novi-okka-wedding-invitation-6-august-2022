@@ -11,19 +11,43 @@ import Chapter_4 from '../components/Chapter_4'
 import Chapter_5 from '../components/Chapter_5'
 import Chapter_6 from '../components/Chapter_6'
 import PrologueSelection from '../components/Prologue-selection'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+
+import preLoaderImage from '../assets/images/pre-loader.gif'
 
 export default function Home() {
   const [landing, setlanding] = useState(true)
-  const [prologue, setprologue] = useState(false)
-  const [chapter_1, setChapter_1] = useState(false)
-  const [chapter_2, setChapter_2] = useState(false)
-  const [chapter_3, setChapter_3] = useState(false)
-  const [chapter_4, setChapter_4] = useState(false)
-  const [chapter_5, setChapter_5] = useState(false)
-  const [chapter_6, setChapter_6] = useState(false)
+  const [prologue, setprologue] = useState(true)
+  const [chapter_1, setChapter_1] = useState(true)
+  const [chapter_2, setChapter_2] = useState(true)
+  const [chapter_3, setChapter_3] = useState(true)
+  const [chapter_4, setChapter_4] = useState(true)
+  const [chapter_5, setChapter_5] = useState(true)
+  const [chapter_6, setChapter_6] = useState(true)
   const [prologueModal, setPrologueModal] = useState(false)
   const [activeSection, setActiveSection] = useState('landing')
+  const [preLoad, setPreload] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setprologue(false)
+      setChapter_1(false)
+      setChapter_2(false)
+      setChapter_3(false)
+      setChapter_4(false)
+      setChapter_5(false)
+      setChapter_6(false)
+      setlanding(false)
+
+      setTimeout(() => {
+        setPreload(false)
+
+        setTimeout(() => {
+          setlanding(true)
+        }, 500);
+      }, 1000);
+    }, 5000);
+  }, [])
 
   const activatePrologue = () => {
     const audio = document.getElementById('enter-sound')
@@ -77,10 +101,6 @@ export default function Home() {
       switch (activeSection) {
         case 'landing':
           if (!localStorage.getItem('PROLOGUE_FINISHED')) {
-            //   // activateChapter_1()
-            //   // setActiveSection('chapter_1')
-            //   console.log('test')
-            // } else {
             setprologue(true)
             setActiveSection('prologue')
           }
@@ -176,7 +196,30 @@ export default function Home() {
         <link rel="icon" href="/sakura.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${preLoad ? styles['pre-load-active'] : ''}`}>
+
+        <AnimatePresence>
+          {preLoad &&
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className={styles['pre-loader']}
+              key={'pre-loader'}>
+              <div className={styles['pre-loader-image-container']}>
+                <Image
+                  src={preLoaderImage}
+                  alt=''
+                  className={styles['pre-loader-image']}
+                />
+              </div>
+              <div className={styles['pre-loader-description']}>Loading . . .</div>
+              <div className={styles['pre-loader-sub-description']}>For better experience, please open this invitation on a laptop or PC</div>
+            </motion.div>
+          }
+        </ AnimatePresence>
+
         <AnimatePresence>
           {landing && <LandingSection next={next} />}
 
