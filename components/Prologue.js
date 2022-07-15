@@ -187,15 +187,6 @@ export default function Prologue({ next }) {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                     className={styles['dialogue-container']}>
-                    <div className={styles['name-tag-container']}>
-                        <motion.div animate={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: -20 }}
-                            exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.5 }} className={`${styles['name-tag']} ${styles['bride']} ${brideTalking ? '' : styles.talking}`}>Novi Andriany</motion.div>
-                        <motion.div animate={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: 20 }}
-                            exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.5 }} className={`${styles['name-tag']} ${styles['groom']} ${groomTalking ? '' : styles.talking}`}>Okka Linardi</motion.div>
-                    </div>
-
                     {firstSpeech &&
                         <motion.div
                             animate={{

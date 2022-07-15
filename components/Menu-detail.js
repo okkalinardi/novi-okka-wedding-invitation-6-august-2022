@@ -2,7 +2,7 @@
 import styles from '../styles/Menu-details.module.scss'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import PrologueImage from '../assets/images/prologue_bg.png'
+import PrologueImage from '../assets/images/prologue_bg.jpg'
 // import FirstChapterImage from '/chapter_1_bg.png'
 // import SecondChapterImage from '/chapter_2_bg.png'
 // import ThirdChapterImage from '/chapter_3_bg.png'
@@ -37,7 +37,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src='/chapter_1_bg.png'
+                            src='/chapter_1_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
                             layout="fill"
@@ -51,7 +51,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src='/chapter_2_bg.png'
+                            src='/chapter_2_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
                             layout="fill"
@@ -65,7 +65,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src='/chapter_3_bg.png'
+                            src='/chapter_3_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
                             layout="fill"
@@ -79,7 +79,7 @@ export default function MenuDetails({ activeMenu }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }} className={styles['menu-detail-image']}>
                         <Image
-                            src='/chapter_4_bg.png'
+                            src='/chapter_4_bg.jpg'
                             alt=''
                             className={styles['menu-detail-image-content']}
                             layout="fill"

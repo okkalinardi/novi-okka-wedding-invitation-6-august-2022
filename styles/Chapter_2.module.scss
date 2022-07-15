@@ -43,6 +43,10 @@
     background-position-y: bottom;
     width: 100%;
     height: 100%;
+
+    @media screen and (max-width: 768px) {
+        background-position-x: 20px;
+    }
 }
 
 .bride {
@@ -53,6 +57,10 @@
     background-position-y: bottom;
     width: 100%;
     height: 100%;
+
+    @media screen and (max-width: 768px) {
+        background-position-x: 20px;
+    }
 }
 
 .vow {
