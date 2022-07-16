@@ -116,7 +116,7 @@ export default function Chapter_4({ activeMenu, goToChapter, next }) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }} className='chapter-title'>
                         <div className='chapter-title-header'>Chapter 4</div>
-                        <div className='chapter-title-content chapter-4'>That moment&apos;s Expression</div>
+                        <div className='chapter-title-content chapter-4'>That Moment&apos;s Expression</div>
                     </motion.div>}
 
                     {content &&
