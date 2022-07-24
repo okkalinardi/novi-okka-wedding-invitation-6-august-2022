@@ -150,7 +150,8 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                                 <div className={styles['location-content-title']}>
                                                     Holy Matrimony will be held at Bogor Cathedral Church
                                                 </div>
-                                                <iframe className={styles['live-stream']} src="https://www.youtube.com/embed/8iP8xXXdvoU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                {/* <iframe className={styles['live-stream']} src="https://www.youtube.com/embed/8iP8xXXdvoU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
+                                                <iframe className={styles['live-stream']} src="https://drive.google.com/file/d/1e0Vz3dl1kxeyUik1nD2-n7Zw9uQ5Txe3/preview" title="Trailer Video" allow="autoplay" allowFullScreen></iframe>
                                             </div>
                                         </div>
                                     </motion.div>

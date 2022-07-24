@@ -223,7 +223,7 @@ export default function Home() {
         <AnimatePresence>
           {landing && <LandingSection next={next} />}
 
-          {prologue && <PrologueSection next={next} />}
+          {prologue && <PrologueSection next={next} preLoad={preLoad} />}
 
           {chapter_1 && <Chapter_1 next={next} goToChapter={goToChapter} />}
 

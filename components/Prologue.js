@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import nextArrow from '../assets/images/double-arrow.svg'
 import Image from 'next/image'
 
-export default function Prologue({ next }) {
+export default function Prologue({ next, preLoad }) {
     const [brideAndGroom, setBrideAndGroom] = useState(true)
     const [groomTalking, setGroomTalking] = useState(true)
     const [brideTalking, setBrideTalking] = useState(true)
@@ -37,15 +37,17 @@ export default function Prologue({ next }) {
 
         setCurrentSpeech(1)
         setFirstSpeech(true)
-        clickSound.play()
-        prologueTheme.play()
+        if (!preLoad) {
+            clickSound.play()
+            prologueTheme.play()
+        }
     }
 
     const startSecondSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
 
         setCurrentSpeech(2)
-        clickSound.play()
+        if (!preLoad) clickSound.play()
         setBrideTalking(false)
         setFirstSpeech(false)
         setSecondSpeech(true)
@@ -55,7 +57,7 @@ export default function Prologue({ next }) {
         const clickSound = document.getElementById('speech-effect')
 
         setCurrentSpeech(3)
-        clickSound.play()
+        if (!preLoad) clickSound.play()
         setBrideTalking(true)
         setGroomTalking(false)
         setSecondSpeech(false)
@@ -68,7 +70,7 @@ export default function Prologue({ next }) {
         prologueTheme.loop = true
 
         setCurrentSpeech(4)
-        clickSound.play()
+        if (!preLoad) clickSound.play()
         setGroomTalking(true)
         setThirdSpeech(false)
         setFourthSpeech(true)
@@ -80,7 +82,7 @@ export default function Prologue({ next }) {
         prologueTheme.loop = true
 
         setCurrentSpeech(5)
-        clickSound.play()
+        if (!preLoad) clickSound.play()
         setFourthSpeech(false)
         setFifthSpeech(true)
 
@@ -105,7 +107,7 @@ export default function Prologue({ next }) {
 
     const skipOne = (speechNumber) => {
         clearTimeout(timeOutDialogue)
-        console.log(speechNumber)
+
         switch (speechNumber) {
             case 0:
                 startFirstSpeech()
