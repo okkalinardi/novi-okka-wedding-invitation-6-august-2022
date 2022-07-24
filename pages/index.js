@@ -52,6 +52,10 @@ export default function Home() {
   const activatePrologue = () => {
     const audio = document.getElementById('enter-sound')
     audio.play()
+
+    const mainTheme = document.getElementById('main-theme')
+    mainTheme.loop = true
+    mainTheme.play()
     setPrologueModal(false)
     setlanding(false)
     setprologue(true)
@@ -60,6 +64,10 @@ export default function Home() {
   const skipPrologue = () => {
     const audio = document.getElementById('enter-sound')
     audio.play()
+
+    const mainTheme = document.getElementById('main-theme')
+    mainTheme.loop = true
+    mainTheme.play()
     setPrologueModal(false)
     setlanding(false)
     activateChapter_1()
@@ -136,9 +144,6 @@ export default function Home() {
 
   const activateChapter_1 = () => {
     setActiveSection('chapter_1')
-    const mainTheme = document.getElementById('main-theme')
-    mainTheme.loop = true
-    mainTheme.play()
     setChapter_1(true)
   }
 
@@ -153,9 +158,6 @@ export default function Home() {
 
     switch (chapterNumber) {
       case 0:
-        const mainTheme = document.getElementById('main-theme')
-        mainTheme.pause()
-        mainTheme.currentTime = 0
         setprologue(true)
         setActiveSection('prologue')
         break;
@@ -246,10 +248,10 @@ export default function Home() {
         <source src='/enter-sound.mp3' type='audio/mpeg' />
         Your browser does not support the audio element.
       </audio>
-      <audio id='prologue-theme'>
+      {/* <audio id='prologue-theme'>
         <source src='/prologue-theme.mp3' type='audio/mpeg' />
         Your browser does not support the audio element.
-      </audio>
+      </audio> */}
       <audio id='speech-effect'>
         <source src='/speech-effect.mp3' type='audio/mpeg' />
         Your browser does not support the audio element.

@@ -15,8 +15,7 @@ export default function Prologue({ next, preLoad }) {
     const [thirdSpeech, setThirdSpeech] = useState(false)
     const [fourthSpeech, setFourthSpeech] = useState(false)
     const [fifthSpeech, setFifthSpeech] = useState(false)
-
-    let startPage
+    
     let timeOutDialogue
 
     useEffect(() => {
@@ -32,14 +31,10 @@ export default function Prologue({ next, preLoad }) {
 
     const startFirstSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
-        const prologueTheme = document.getElementById('prologue-theme')
-        prologueTheme.loop = true
-
         setCurrentSpeech(1)
         setFirstSpeech(true)
         if (!preLoad) {
             clickSound.play()
-            prologueTheme.play()
         }
     }
 
@@ -66,8 +61,6 @@ export default function Prologue({ next, preLoad }) {
 
     const startFourthSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
-        const prologueTheme = document.getElementById('prologue-theme')
-        prologueTheme.loop = true
 
         setCurrentSpeech(4)
         if (!preLoad) clickSound.play()
@@ -78,29 +71,13 @@ export default function Prologue({ next, preLoad }) {
 
     const startFifthSpeech = () => {
         const clickSound = document.getElementById('speech-effect')
-        const prologueTheme = document.getElementById('prologue-theme')
-        prologueTheme.loop = true
 
         setCurrentSpeech(5)
         if (!preLoad) clickSound.play()
         setFourthSpeech(false)
         setFifthSpeech(true)
 
-        const fadeAudio = setInterval(() => {
-            // Only fade if past the fade out point or not at zero already
-            if (prologueTheme.volume != 0) {
-                prologueTheme.volume = Math.max(0, prologueTheme.volume - 0.005)
-            }
-            // When volume at zero stop all the intervalling
-            if (prologueTheme.volume === 0) {
-                clearInterval(fadeAudio);
-                prologueTheme.pause()
-                prologueTheme.currentTime = 0;
-            }
-        }, 50);
-
         setTimeout(() => {
-            clearInterval(startPage)
             next()
         }, 2000);
     }
@@ -125,7 +102,7 @@ export default function Prologue({ next, preLoad }) {
                 startFifthSpeech()
                 break;
             case 5:
-                clearInterval(startPage)
+
                 next()
                 break;
             default:
@@ -154,7 +131,7 @@ export default function Prologue({ next, preLoad }) {
                 startFifthSpeech()
                 break;
             default:
-                clearInterval(startPage)
+
                 next()
                 break;
         }

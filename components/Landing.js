@@ -8,6 +8,12 @@ export default function Intro({next}) {
     function play() {
         const audio = document.getElementById('enter-sound')
         audio.play()
+
+        if (!localStorage.getItem('PROLOGUE_FINISHED')) {
+            const mainTheme = document.getElementById('main-theme')
+            mainTheme.loop = true
+            mainTheme.play()
+        }
         next()
     }
 
