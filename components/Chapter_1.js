@@ -177,7 +177,7 @@ export default function Chapter_1({ next, goToChapter }) {
                                             exit={{ opacity: 0, translateX: 100 }}
                                             transition={{ duration: 1.7 }}
                                             className={styles['intro-content']}>
-                                            Daugther of Hery Saputro and Harnanik Sadi
+                                            Daughter of Hery Saputro and Harnanik Sadi
                                         </motion.div>
                                     </div>
                                 </div>
