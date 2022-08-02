@@ -14,6 +14,7 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
     const [secondContent, setSecondContent] = useState(false)
 
     const [weddingDay, setWeddingDay] = useState(false);
+    const [weddingTime, setWeddingTime] = useState(false);
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -50,6 +51,8 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
 
             if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
                 setWeddingDay(true);
+            } else if (d <= 0 && h <= 12 && m <= 0 && s <= 0) {
+                setWeddingTime(true)
             }
         }, 1000);
 
@@ -150,8 +153,15 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                                 <div className={styles['location-content-title']}>
                                                     Holy Matrimony will be held at Bogor Cathedral Church
                                                 </div>
-                                                {/* <iframe className={styles['live-stream']} src="https://www.youtube.com/embed/8iP8xXXdvoU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-                                                <iframe className={styles['live-stream']} src="https://drive.google.com/file/d/1e0Vz3dl1kxeyUik1nD2-n7Zw9uQ5Txe3/preview" title="Trailer Video" allow="autoplay" allowFullScreen></iframe>
+                                                {
+                                                    weddingTime &&
+                                                    <iframe className={styles['live-stream']} src="https://www.youtube.com/embed/XL32M7nPrLg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                }
+
+                                                {
+                                                    !weddingTime &&
+                                                    <iframe className={styles['live-stream']} src="https://drive.google.com/file/d/1e0Vz3dl1kxeyUik1nD2-n7Zw9uQ5Txe3/preview" title="Trailer Video" allow="autoplay" allowFullScreen></iframe>
+                                                }
                                             </div>
                                         </div>
                                     </motion.div>
@@ -169,7 +179,7 @@ export default function Chapter_2({ activeMenu, goToChapter, next }) {
                                 <div className={styles['moogle-dialog']}>{firstContent ? 'Click me, Kupo!' : 'Go back, kupo!'}</div>
                             </button>
                             {/* <Dialogue speeches={speeches} /> */}
-                            <Menu toggleZindex={()=> {}} active={3} next={next} goToChapter={goToChapter} />
+                            <Menu toggleZindex={() => { }} active={3} next={next} goToChapter={goToChapter} />
                         </motion.div>
                     }
 
